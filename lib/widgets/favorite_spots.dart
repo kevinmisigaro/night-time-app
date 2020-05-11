@@ -12,8 +12,8 @@ Widget favSpots = ListView(
                     height: 110.0,
                     child: Stack(
                       children: <Widget>[
-                        Image.network(
-                          'https://images.pexels.com/photos/2240763/pexels-photo-2240763.jpeg?cs=srgb&dl=women-taking-photo-2240763.jpg&fm=jpg',
+                        Image.asset(
+                          'assets/images/party2.jpg',
                           fit: BoxFit.cover,
                         ),
                         Positioned(

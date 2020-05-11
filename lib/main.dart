@@ -15,7 +15,7 @@ void main() => runApp(MaterialApp(
 
 class MyApp extends StatelessWidget {
   final newDt = DateFormat.MMMEd().format(DateTime.now());
-  final double _standardHeight = 28;
+  final double _standardHeight = 35;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
         title: Text(
-          'Night Life App',
+          'Night Life',
           style: GoogleFonts.roboto(
               color: Colors.white, 
               fontSize: 19, 
@@ -35,12 +35,12 @@ class MyApp extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 7),
+            padding: EdgeInsets.symmetric(vertical: 10),
           ),
 
           Center(
             child: Text(
-              'Today $newDt',
+              'Ready to go out Kevin?',
               style: GoogleFonts.roboto(
                   color: Colors.white, 
                   fontSize: 23, 
@@ -58,11 +58,12 @@ class MyApp extends StatelessWidget {
                 fontSize: 23, 
                 fontWeight: FontWeight.w700),
           ),
+
           SizedBox(height: 8,),
 
           Container(
             height: 130.0,
-            child: recommendedList
+            child: Recommended()
           ),
 
           SizedBox(height: _standardHeight,),
@@ -151,6 +152,17 @@ class MyApp extends StatelessWidget {
           ),
         ],
       ),
+      bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.black,
+          selectedItemColor: Colors.blueAccent,
+          unselectedItemColor: Colors.white,
+          type: BottomNavigationBarType.fixed,
+          items: const <BottomNavigationBarItem> [
+            BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home', style: TextStyle(color: Colors.white),)),
+            BottomNavigationBarItem(icon: Icon(Icons.search), title: Text('Search',  style: TextStyle(color: Colors.white))),
+            BottomNavigationBarItem(icon: Icon(Icons.favorite_border), title: Text('Favorites',  style: TextStyle(color: Colors.white))),
+            BottomNavigationBarItem(icon: Icon(Icons.person_outline), title: Text('Profile',  style: TextStyle(color: Colors.white))),
+          ]),
     );
   }
 }

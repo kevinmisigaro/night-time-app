@@ -10,10 +10,10 @@ Widget placesList = GridView.count(
                     width: 50.0,
                     child: Stack(
                       children: <Widget>[
-                        Image.network(
-                          'https://images.pexels.com/photos/1449795/pexels-photo-1449795.jpeg?cs=srgb&dl=group-of-people-partying-1449795.jpg&fm=jpg',
-                          fit: BoxFit.cover,
-                        ),
+                        Image.asset(
+                      'assets/images/party2.jpg',
+                      fit: BoxFit.cover,
+                    ),
                         Positioned(
                           top: 120,
                           left: 10,
