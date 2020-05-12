@@ -8,7 +8,6 @@ class RecommendDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
@@ -30,9 +29,8 @@ class RecommendDetail extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            Align(
-              alignment: Alignment.center,
-              child: Text(
+
+             Text(
                 'Kidimbwi',
                 style: GoogleFonts.roboto(
                   color: Colors.white,
@@ -40,7 +38,7 @@ class RecommendDetail extends StatelessWidget {
                   fontSize: 25,
                 ),
               ),
-            ),
+
             SizedBox(
               height: 50,
             ),
