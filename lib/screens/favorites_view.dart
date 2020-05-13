@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:night_life/screens/place_detail_view.dart';
 
-class PlacesView extends StatelessWidget{
+class FavoritesView extends StatelessWidget{
 
-  final List<String> _partyPlaces = [
-    'Kidimbiwi', 'Samaki Samaki', 'Havoc', 'Maison', 'Tipsy', 'Wingman','Juliana', 'Buckets', 'Level 8', 'George & Dragon', 'Golden Tulip','Elements'
+  final List<String> _partyFavorites = [
+    'Kidimbiwi', 'Samaki Samaki', 'Havoc', 'Maison',
   ];
 
   @override
@@ -20,7 +20,7 @@ class PlacesView extends StatelessWidget{
             Align(
               alignment: Alignment.topLeft,
               child: Text(
-                'Places',
+                'Favorites',
                 style: GoogleFonts.roboto(
                     fontSize: 30,
                     fontWeight: FontWeight.w600,
@@ -34,7 +34,7 @@ class PlacesView extends StatelessWidget{
             ListView.builder(
               primary: false,
               shrinkWrap: true,
-              itemCount: _partyPlaces.length,
+              itemCount: _partyFavorites.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
                     padding: EdgeInsets.symmetric(vertical: 10),
@@ -42,7 +42,7 @@ class PlacesView extends StatelessWidget{
                       onTap: () {
                         Navigator.push(context, MaterialPageRoute(builder: (_) => PlaceDetail()));
                       },
-                      child: Text(_partyPlaces[index], style: GoogleFonts.roboto(color: Colors.yellowAccent, fontSize: 20,),),
+                      child: Text(_partyFavorites[index], style: GoogleFonts.roboto(color: Colors.yellowAccent, fontSize: 20,),),
                     )
                   );
                 }

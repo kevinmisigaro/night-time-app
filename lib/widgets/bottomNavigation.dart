@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../screens/places_view.dart';
 import '../screens/home_view.dart';
 
@@ -18,7 +17,6 @@ class BottomNav extends StatefulWidget{
 
 class BottomNavState extends State<BottomNav>{
 
-
   void _onItemTapped(int index) {
     setState(() {
       widget._latestIndex = index;
@@ -26,10 +24,11 @@ class BottomNavState extends State<BottomNav>{
 
     switch(index) {
       case 0:
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => HomePage()));
+//        Navigator.push(context, MaterialPageRoute(builder: (_) => MyApp()));
+      print('null');
         break;
       case 1:
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => PlacesView()));
+        Navigator.push(context, MaterialPageRoute(builder: (_) => PlacesView()));
         break;
       case 2:
         return null;

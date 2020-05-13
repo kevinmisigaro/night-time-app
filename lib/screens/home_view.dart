@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:night_life/screens/places_view.dart';
-import 'package:night_life/widgets/bottonNavigation.dart';
 
 //widgets
-import 'package:night_life/widgets/places.dart';
-import '../widgets/recommended.dart';
-import '../widgets/favorite_spots.dart';
-import '../widgets/events.dart';
+import 'package:night_life/widgets/home_section/places.dart';
+import '../widgets/home_section/recommended.dart';
+import '../widgets/home_section/favorite_spots.dart';
+import '../widgets/home_section/events.dart';
+import '../screens/events_view.dart';
 
 class HomePage extends StatefulWidget{
-//
-//  int currentPageIndex;
-//
-//  HomePage({this.currentPageIndex});
 
   @override
   State<StatefulWidget> createState() {
@@ -29,41 +24,38 @@ class _HomePageState extends State<HomePage>{
   final noonHour = DateFormat.Hm().parse('12:00');
   final eveningHour = DateFormat.Hm('en_US').parse('17:00');
 
-  final double _standardHeight = 35;
+  final double _standardHeight = 30;
 
   @override
   Widget build(BuildContext context) {
     final currentHour = DateFormat.Hm().format(DateTime.now());
 
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blueAccent,
-        title: Text(
-          'Night Life',
-          style: GoogleFonts.roboto(
-              color: Colors.white, 
-              fontSize: 19, 
-              fontWeight: FontWeight.w600
-              ),
-        ),
-      ),
-      backgroundColor: Colors.black,
-      body: ListView(
+    return ListView(
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 10),
+            padding: EdgeInsets.symmetric(vertical: 0),
           ),
 
-          Center(
-            child: Text(
+          Text(
+            '$newDt',
+            style: GoogleFonts.roboto(
+                color: Colors.grey,
+                fontSize: 17,
+                fontWeight: FontWeight.w500,
+            ),
+          ),
+
+          SizedBox(height: 10,),
+
+          Text(
               'Ready to go out tonight?',
               style: GoogleFonts.roboto(
                   color: Colors.white,
-                  fontSize: 23,
+                  fontSize: 26,
                   fontWeight: FontWeight.w700
                   ),
             ),
-          ),
+
 
           SizedBox(height: _standardHeight,),
 
@@ -84,28 +76,13 @@ class _HomePageState extends State<HomePage>{
 
           SizedBox(height: _standardHeight,),
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text(
-                'Your Spots',
+           Text(
+                'Your Favorite Spots',
                 style: GoogleFonts.roboto(
                     color: Colors.white,
                     fontSize: 23,
                     fontWeight: FontWeight.w700),
               ),
-              OutlineButton(
-                  child: new Text("See More"),
-                  textColor: Colors.white,
-                  onPressed: () {},
-                  borderSide: BorderSide(color: Colors.blueAccent, 
-                  width: 1.0, 
-                  style: BorderStyle.solid),
-                  shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0),)
-              )
-
-            ],
-          ),
 
           Container(
             height: 130.0,
@@ -118,7 +95,7 @@ class _HomePageState extends State<HomePage>{
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text(
-                'Events',
+                'Upcoming Events',
                 style: GoogleFonts.roboto(
                     color: Colors.white,
                     fontSize: 23,
@@ -127,7 +104,9 @@ class _HomePageState extends State<HomePage>{
               OutlineButton(
                   child: new Text("See More"),
                   textColor: Colors.white,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (_)=> EventsView()));
+                  },
                   borderSide: BorderSide(color: Colors.blueAccent, width: 1.0, style: BorderStyle.solid),
                   shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0),)
               )
@@ -141,36 +120,20 @@ class _HomePageState extends State<HomePage>{
 
           SizedBox(height: _standardHeight,),
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text(
+          Text(
                 'Places',
                 style: GoogleFonts.roboto(
                     color: Colors.white,
                     fontSize: 23,
                     fontWeight: FontWeight.w700),
               ),
-              OutlineButton(
-                  child: new Text("See More"),
-                  textColor: Colors.white,
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => PlacesView()));
-                  },
-                  borderSide: BorderSide(color: Colors.blueAccent, width: 1.0, style: BorderStyle.solid),
-                  shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0),)
-              )
-            ],
-          ),
 
           Container(
-            height: 350,
-            padding: EdgeInsets.symmetric(horizontal: 10.0),
+            height: 130,
             child: placesList
           ),
         ],
-      ),
-      bottomNavigationBar: BottomNav(0)
-    );
+      );
+
   }
 }
