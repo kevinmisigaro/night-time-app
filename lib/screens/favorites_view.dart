@@ -17,19 +17,19 @@ class FavoritesView extends StatelessWidget{
         child: Column(
           children: <Widget>[
 
-            Align(
-              alignment: Alignment.topLeft,
-              child: Text(
-                'Favorites',
-                style: GoogleFonts.roboto(
-                    fontSize: 30,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white
-                ),
-              ),
-            ),
-
-            SizedBox(height: 20,),
+//            Align(
+//              alignment: Alignment.topLeft,
+//              child: Text(
+//                'Favorites',
+//                style: GoogleFonts.roboto(
+//                    fontSize: 30,
+//                    fontWeight: FontWeight.w600,
+//                    color: Colors.white
+//                ),
+//              ),
+//            ),
+//
+//            SizedBox(height: 20,),
 
             ListView.builder(
               primary: false,

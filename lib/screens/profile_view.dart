@@ -13,18 +13,18 @@ class ProfileView extends StatelessWidget{
         child: Column(
           children: <Widget>[
 
-            Align(
-              alignment: Alignment.topLeft,
-              child: Text(
-                'Your Profile',
-                style: GoogleFonts.roboto(
-                    fontSize: 30,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white
-                ),
-              ),
-            ),
-
+//            Align(
+//              alignment: Alignment.topLeft,
+//              child: Text(
+//                'Your Profile',
+//                style: GoogleFonts.roboto(
+//                    fontSize: 30,
+//                    fontWeight: FontWeight.w600,
+//                    color: Colors.white
+//                ),
+//              ),
+//            ),
+//
             SizedBox(height: 70,),
 
             Text(

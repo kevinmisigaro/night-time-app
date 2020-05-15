@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:night_life/screens/favorites_view.dart';
 import 'package:night_life/screens/home_view.dart';
 import 'package:night_life/screens/places_view.dart';
@@ -39,6 +40,33 @@ class _HomeState extends State<Home> {
     });
   }
 
+  Widget appBarText(String text) {
+    return Text(
+      '$text',
+      style: GoogleFonts.roboto(color: Colors.white, fontWeight: FontWeight.w600),
+    );
+  }
+
+  Widget appBarTitle(int index) {
+    switch (index) {
+      case 0:
+        return null;
+        break;
+      case 1:
+        return appBarText('Places');
+        break;
+      case 2:
+        return appBarText('Favorites');
+        break;
+      case 3:
+        return appBarText('Your Profile');
+        break;
+      default:
+        return null;
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -47,6 +75,7 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         automaticallyImplyLeading: false,
+        title: appBarTitle(_currentIndex),
       ),
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
