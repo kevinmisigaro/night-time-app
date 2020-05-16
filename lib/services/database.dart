@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:night_life/models/club.dart';
+import 'package:night_life/models/event.dart';
 
 class DatabaseService {
 
@@ -19,14 +20,25 @@ class DatabaseService {
     )).toList();
   }
 
+  //event list from snapshot
+  List<Event> _eventListFromSnapShot(QuerySnapshot snapshot){
+    return snapshot.documents.map((doc) => Event(
+      eventName: doc.data['name'] ?? '',
+      theme: doc.data['theme'] ?? '',
+      entranceFee: doc.data['entrance_fee'] ?? '',
+      date: doc.data['date'] ?? '',
+      alcoholPrice: doc.data['alcohol_price'] ?? 0
+    )).toList();
+  }
+
   //get clubs stream
   Stream<List<Club>> get clubs {
     return clubCollection.snapshots().map(_clubListFromSnapshot);
   }
 
   //get events stream
-  Stream<QuerySnapshot> get events {
-    return eventCollection.snapshots();
+  Stream<List<Event>> get events {
+    return eventCollection.snapshots().map(_eventListFromSnapShot);
   }
 
 

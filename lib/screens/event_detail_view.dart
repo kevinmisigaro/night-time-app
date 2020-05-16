@@ -2,6 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class EventDetail extends StatefulWidget {
+  final String eventName;
+  final String entrance;
+  final String theme;
+  final int alcoholPrice;
+
+  EventDetail({this.eventName, this.entrance, this.theme, this.alcoholPrice});
+
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -32,7 +39,7 @@ class EventDetailState extends State<EventDetail> {
               height: 20,
             ),
             Text(
-              'No Tie After 5',
+              widget.eventName,
               style: GoogleFonts.roboto(
                   color: Colors.yellowAccent,
                   fontSize: 23,
@@ -53,7 +60,7 @@ class EventDetailState extends State<EventDetail> {
               height: 20,
             ),
             Text(
-              'Entrance:  10,000 TZS',
+              'Entrance:  ${widget.entrance} TZS',
               style: GoogleFonts.roboto(
                 color: Colors.white,
                 fontWeight: FontWeight.w600,
@@ -75,7 +82,7 @@ class EventDetailState extends State<EventDetail> {
               height: 20,
             ),
             Text(
-              'Theme:  House Party',
+              'Theme:  ${widget.theme}',
               style: GoogleFonts.roboto(
                 color: Colors.white,
                 fontWeight: FontWeight.w600,
@@ -95,7 +102,7 @@ class EventDetailState extends State<EventDetail> {
                   ),
                   children: [
                     TextSpan(
-                      text: '\$\$\$',
+                      text: '${widget.alcoholPrice}',
                       style: GoogleFonts.roboto(
                         color: Colors.yellowAccent,
                         fontWeight: FontWeight.w600,

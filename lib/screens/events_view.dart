@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:night_life/models/event.dart';
 import 'package:night_life/screens/event_detail_view.dart';
+import 'package:provider/provider.dart';
 
 class EventsView extends StatelessWidget {
-  final List<String> _partyFavorites = [
-    'Mi Casa Su Casa',
-    'Str8 Up Vibes Kidimbwi',
-    'No Tie After 5'
-  ];
-
   @override
   Widget build(BuildContext context) {
+    final events = Provider.of<List<Event>>(context);
+
     // TODO: implement build
     return Scaffold(
       backgroundColor: Colors.black,
@@ -41,36 +39,42 @@ class EventsView extends StatelessWidget {
             ListView.builder(
                 primary: false,
                 shrinkWrap: true,
-                itemCount: _partyFavorites.length,
+                itemCount: events.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
                     padding: EdgeInsets.symmetric(vertical: 15),
                     child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (_) => EventDetail()));
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children:[
-                          Text(
-                            _partyFavorites[index],
-                            style: GoogleFonts.roboto(
-                              color: Colors.yellowAccent,
-                              fontSize: 20,
-                            ),
-                          ),
-                          Text(
-                            '19th May',
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => EventDetail(
+                                        eventName: events[index].eventName,
+                                        theme: events[index].theme,
+                                        entrance: events[index].entranceFee,
+                                        alcoholPrice:
+                                            events[index].alcoholPrice,
+                                      )));
+                        },
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                events[index].eventName,
+                                style: GoogleFonts.roboto(
+                                  color: Colors.yellowAccent,
+                                  fontSize: 20,
+                                ),
+                              ),
+                              Text(
+                                events[index].date,
                                 style: GoogleFonts.roboto(
                                   color: Colors.grey,
                                   fontSize: 17,
                                   fontWeight: FontWeight.w500,
                                 ),
-                          )
-                        ]
-                      )
-                    ),
+                              )
+                            ])),
                   );
                 })
           ],
