@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:night_life/models/user.dart';
 import 'package:night_life/screens/favorites_view.dart';
 import 'package:night_life/screens/home_view.dart';
 import 'package:night_life/screens/places_view.dart';
 import 'package:night_life/screens/profile_view.dart';
+import 'package:night_life/services/authentication_service.dart';
+import 'package:night_life/wrapper.dart';
+import 'package:provider/provider.dart';
 
 void main() => runApp(App());
 
@@ -11,8 +15,11 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return MaterialApp(
-      home: Home(),
+    return StreamProvider<User>.value(
+      value: AuthenticationService().user,
+      child: MaterialApp(
+        home: Wrapper(),
+      ),
     );
   }
 }

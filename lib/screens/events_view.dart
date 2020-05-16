@@ -79,24 +79,3 @@ class EventsView extends StatelessWidget {
     );
   }
 }
-
-
-// RichText(
-//                         text: TextSpan(
-//                             text: _partyFavorites[index],
-//                             style: GoogleFonts.roboto(
-//                               color: Colors.yellowAccent,
-//                               fontSize: 20,
-//                             ),
-//                             children: [
-//                               TextSpan(text: '         '),
-//                               TextSpan(
-//                                 text: '19th May',
-//                                 style: GoogleFonts.roboto(
-//                                   color: Colors.grey,
-//                                   fontSize: 17,
-//                                   fontWeight: FontWeight.w500,
-//                                 ),
-//                               )
-//                             ]),
-//                       ),

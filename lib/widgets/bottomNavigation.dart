@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../screens/places_view.dart';
-import '../screens/home_view.dart';
 
 class BottomNav extends StatefulWidget{
 
