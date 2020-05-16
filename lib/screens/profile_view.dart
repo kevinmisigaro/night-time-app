@@ -1,6 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:night_life/models/user.dart';
 import 'package:night_life/services/authentication_service.dart';
+import 'package:provider/provider.dart';
 
 class ProfileView extends StatelessWidget{
 
@@ -8,6 +11,8 @@ class ProfileView extends StatelessWidget{
   Widget build(BuildContext context) {
 
     final AuthenticationService _auth = AuthenticationService();
+
+    final person = Provider.of<User>(context).displayName;
 
     // TODO: implement build
     return SingleChildScrollView(
@@ -18,17 +23,7 @@ class ProfileView extends StatelessWidget{
             SizedBox(height: 70,),
 
             Text(
-              'Name: Kevin Misigaro',
-              style: GoogleFonts.roboto(
-                  color: Colors.white,
-                  fontSize: 23,
-                  fontWeight: FontWeight.w600),
-            ),
-
-            SizedBox(height: 20,),
-
-            Text(
-              'Age: 26',
+              'Hey ${person[0].toUpperCase()}${person.substring(1)}',
               style: GoogleFonts.roboto(
                   color: Colors.white,
                   fontSize: 23,

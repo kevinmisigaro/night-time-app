@@ -17,6 +17,7 @@ class SignUpView extends StatefulWidget {
 class SignUpViewState extends State<SignUpView> {
   final firstNameController = TextEditingController();
   final lastNameController = TextEditingController();
+  final userNameController = TextEditingController();
   final ageController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -83,6 +84,20 @@ class SignUpViewState extends State<SignUpView> {
                       fillColor: Colors.grey[100],
                       filled: true,
                       contentPadding:
+                      EdgeInsets.symmetric(vertical: 10.0, horizontal: 7.0),
+                      hintText: 'Username',
+                    ),
+                    controller: userNameController,
+                    validator: (val) => val.isEmpty ? 'Enter a preffered username' : null,
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      fillColor: Colors.grey[100],
+                      filled: true,
+                      contentPadding:
                           EdgeInsets.symmetric(vertical: 10.0, horizontal: 7.0),
                       hintText: 'Age',
                     ),
@@ -131,7 +146,9 @@ class SignUpViewState extends State<SignUpView> {
                             password: passwordController.text,
                             firstName: firstNameController.text,
                             lastName: lastNameController.text,
-                            age: ageController.text);
+                            userName: userNameController.text,
+                            age: ageController.text
+                        );
                         if (result == null) {
                           setState(() {
                             error = 'Please apply the valid email';

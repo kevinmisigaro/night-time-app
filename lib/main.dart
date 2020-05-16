@@ -6,8 +6,10 @@ import 'package:night_life/screens/home_view.dart';
 import 'package:night_life/screens/places_view.dart';
 import 'package:night_life/screens/profile_view.dart';
 import 'package:night_life/services/authentication_service.dart';
+import 'package:night_life/services/database.dart';
 import 'package:night_life/wrapper.dart';
 import 'package:provider/provider.dart';
+import './models/club.dart';
 
 void main() => runApp(App());
 
@@ -15,8 +17,12 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return StreamProvider<User>.value(
-      value: AuthenticationService().user,
+    return MultiProvider(
+      providers: [
+        StreamProvider<User>.value(value: AuthenticationService().user),
+        StreamProvider<List<Club>>.value(value: DatabaseService().clubs),
+//        StreamProvider<QuerySnapshot>.value(value: DatabaseService().events),
+      ],
       child: MaterialApp(
         home: Wrapper(),
       ),
@@ -50,7 +56,8 @@ class _HomeState extends State<Home> {
   Widget appBarText(String text) {
     return Text(
       '$text',
-      style: GoogleFonts.roboto(color: Colors.white, fontWeight: FontWeight.w600),
+      style:
+          GoogleFonts.roboto(color: Colors.white, fontWeight: FontWeight.w600),
     );
   }
 

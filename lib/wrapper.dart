@@ -28,7 +28,6 @@ class WrapperState extends State<Wrapper>{
     // TODO: implement build
 
     final user = Provider.of<User>(context);
-    print('the user is $user');
 
     //return either Home or Authenticate
     if(user == null){

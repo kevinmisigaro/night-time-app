@@ -2,6 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PlaceDetail extends StatefulWidget {
+
+  final String clubName;
+  final String clubLocation;
+  final int clubAlcoholPrice;
+
+  PlaceDetail({
+    this.clubName,
+    this.clubLocation,
+    this.clubAlcoholPrice
+});
+
+
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -12,8 +24,10 @@ class PlaceDetail extends StatefulWidget {
 class PlaceDetailState extends State<PlaceDetail> {
   bool _isFavorite = false;
 
+
   @override
   Widget build(BuildContext context) {
+
     // TODO: implement build
     return Scaffold(
       backgroundColor: Colors.black,
@@ -32,7 +46,7 @@ class PlaceDetailState extends State<PlaceDetail> {
               height: 20,
             ),
             Text(
-              'Maison',
+              '${widget.clubName}',
               style: GoogleFonts.roboto(
                   color: Colors.white,
                   fontSize: 23,
@@ -42,7 +56,7 @@ class PlaceDetailState extends State<PlaceDetail> {
               height: 20,
             ),
             Text(
-              'Location:  Mbezi Beach',
+              'Location:  ${widget.clubLocation}',
               style: GoogleFonts.roboto(
                 color: Colors.white,
                 fontWeight: FontWeight.w600,
@@ -73,7 +87,8 @@ class PlaceDetailState extends State<PlaceDetail> {
                   ),
                   children: [
                     TextSpan(
-                      text: '\$\$\$',
+                      text: '${
+                      widget.clubAlcoholPrice}',
                       style: GoogleFonts.roboto(
                         color: Colors.yellowAccent,
                         fontWeight: FontWeight.w600,

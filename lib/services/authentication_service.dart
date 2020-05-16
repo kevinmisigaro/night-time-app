@@ -8,7 +8,10 @@ class AuthenticationService {
 
   //create user obj based on FirebaseUser
   User _userFromFirebaseUser(FirebaseUser user){
-    return user != null ? User(uid: user.uid) : null;
+    return user != null ? User(
+        uid: user.uid,
+        displayName: user.displayName
+    ) : null;
   }
 
   //auth change user stream
@@ -38,16 +41,23 @@ class AuthenticationService {
     @required String password,
     @required String firstName,
     @required String lastName,
+    @required String userName,
     @required String age
   }) async {
     try{
       AuthResult authResult = await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
       FirebaseUser user = authResult.user;
 
+      UserUpdateInfo updateInfo = UserUpdateInfo();
+      updateInfo.displayName = userName;
+
+      user.updateProfile(updateInfo);
+
       Firestore.instance.collection('users').document().setData({
         'id': authResult.user.uid,
         'first_name': firstName,
         'last_name': lastName,
+        'user_name': userName,
         'email': authResult.user.email,
         'age': age
       });

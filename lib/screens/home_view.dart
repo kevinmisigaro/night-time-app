@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:night_life/models/user.dart';
 
 //widgets
 import 'package:night_life/widgets/home_section/places.dart';
+import 'package:provider/provider.dart';
 import '../widgets/home_section/recommended.dart';
 import '../widgets/home_section/favorite_spots.dart';
 import '../widgets/home_section/events.dart';
@@ -30,6 +32,8 @@ class _HomePageState extends State<HomePage>{
   Widget build(BuildContext context) {
     final currentHour = DateFormat.Hm().format(DateTime.now());
 
+    final person = Provider.of<User>(context).displayName;
+
     return ListView(
         children: <Widget>[
           Padding(
@@ -48,7 +52,7 @@ class _HomePageState extends State<HomePage>{
           SizedBox(height: 10,),
 
           Text(
-              'Ready to go out tonight?',
+              'Going out tonight ${person[0].toUpperCase()}${person.substring(1)}?',
               style: GoogleFonts.roboto(
                   color: Colors.white,
                   fontSize: 26,
