@@ -39,10 +39,12 @@ class LoginViewState extends State<LoginView> {
               children: <Widget>[
                 Text(
                   'Login',
-                  style: GoogleFonts.roboto(
+                  style: TextStyle(
+                      fontFamily: 'MonumentExtended',
                       color: Colors.white,
                       fontSize: 20,
-                      fontWeight: FontWeight.w700),
+                      fontWeight: FontWeight.w600
+                  ),
                 ),
                 SizedBox(
                   height: 40,
@@ -105,7 +107,16 @@ class LoginViewState extends State<LoginView> {
                   onPressed: () {
                     widget.toggleView();
                   },
-                  child: Text('Don\'t have an account? Sign up!', style: TextStyle(color: Colors.grey),),
+                  child: RichText(
+                    text: TextSpan(
+                        text: 'Don\'t have and account? ',
+                        style: TextStyle(color: Colors.grey),
+                        children: <TextSpan>[
+                          TextSpan(
+                              text: 'Click here to Sign Up!',
+                              style: TextStyle(color: Colors.lightBlueAccent)),
+                        ]),
+                  ),
                 )
               ],
             ),

@@ -33,7 +33,10 @@ class PlacesView extends StatelessWidget {
                     itemCount: data.length,
                     itemBuilder: (BuildContext context, int index) {
                       return Container(
-                          padding: EdgeInsets.symmetric(vertical: 10),
+                        decoration: BoxDecoration(border: Border(
+                          bottom: BorderSide(width: 1.0, color: Colors.grey[800])
+                        )),
+                          padding: EdgeInsets.symmetric(vertical: 15),
                           child: GestureDetector(
                             onTap: () {
                               Navigator.push(
@@ -51,7 +54,7 @@ class PlacesView extends StatelessWidget {
                             child: Text(
                               clubs[index].name,
                               style: GoogleFonts.roboto(
-                                color: Colors.yellowAccent,
+                                color: Colors.blueGrey,
                                 fontSize: 20,
                               ),
                             ),

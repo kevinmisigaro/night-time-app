@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:night_life/models/user.dart';
 import 'package:night_life/services/authentication_service.dart';
+import 'package:night_life/services/database.dart';
 import 'package:provider/provider.dart';
 
 class ProfileView extends StatelessWidget {
@@ -9,7 +10,7 @@ class ProfileView extends StatelessWidget {
   Widget build(BuildContext context) {
     final AuthenticationService _auth = AuthenticationService();
 
-    final person = Provider.of<User>(context).displayName;
+    final id = Provider.of<User>(context).uid;
 
     return SingleChildScrollView(
       padding: EdgeInsets.symmetric(
@@ -20,13 +21,37 @@ class ProfileView extends StatelessWidget {
           SizedBox(
             height: 70,
           ),
-          Text(
-            'Hey ${person[0].toUpperCase()}${person.substring(1)}',
-            style: GoogleFonts.roboto(
-                color: Colors.white, fontSize: 23, fontWeight: FontWeight.w600),
+          StreamBuilder(
+            stream: DatabaseService(uid: id).userProfile,
+              builder: (context, snapshot) {
+                if(!snapshot.hasData) {
+                  return Container();
+                } else{
+                  var document = snapshot.data['user_name'];
+
+                  return Text(
+                    'Hey ${document[0].toUpperCase()}${document.substring(1)}',
+                    style: GoogleFonts.roboto(
+                        color: Colors.white, fontSize: 23, fontWeight: FontWeight.w600),
+                  );
+                }
+              }
           ),
+
+          SizedBox(height: 40,),
+
+          Center(
+            child: Container(
+              width: 300,
+              child: Text('Thanks for being part of the trial version of this app, this app was made with love and excitement. Would love any feedback you have!',
+                style: TextStyle(color: Colors.blueGrey, fontSize: 18,),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
+
           SizedBox(
-            height: 20,
+            height: 40,
           ),
           Center(
               child: OutlineButton(

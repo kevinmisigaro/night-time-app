@@ -17,3 +17,10 @@ class UserClubFavorites {
   UserClubFavorites({this.clubId, this.userId, this.alcoholPrice, 
   this.location, this.type, this.name, this.likes});
 }
+
+class UserProfile {
+  final String name;
+  final String email;
+
+  UserProfile({this.name, this.email});
+}

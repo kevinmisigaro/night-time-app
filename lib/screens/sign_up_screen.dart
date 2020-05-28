@@ -35,7 +35,7 @@ class SignUpViewState extends State<SignUpView> {
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 60),
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 130),
             child: Form(
               key: _registerFormKey,
               child: Column(
@@ -43,13 +43,15 @@ class SignUpViewState extends State<SignUpView> {
                 children: <Widget>[
                   Text(
                     'Sign Up',
-                    style: GoogleFonts.roboto(
+                      style: TextStyle(
+                        fontFamily: 'MonumentExtended',
                         color: Colors.white,
                         fontSize: 20,
-                        fontWeight: FontWeight.w700),
+                        fontWeight: FontWeight.w600
+                      ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 40,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
@@ -57,52 +59,11 @@ class SignUpViewState extends State<SignUpView> {
                       filled: true,
                       contentPadding:
                           EdgeInsets.symmetric(vertical: 10.0, horizontal: 7.0),
-                      hintText: 'First Name',
-                    ),
-                    controller: firstNameController,
-                    validator: (val) => val.isEmpty ? 'Enter a first name' : null,
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      fillColor: Colors.grey[100],
-                      filled: true,
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 10.0, horizontal: 7.0),
-                      hintText: 'Last Name',
-                    ),
-                    controller: lastNameController,
-                    validator: (val) => val.isEmpty ? 'Enter a last name' : null,
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      fillColor: Colors.grey[100],
-                      filled: true,
-                      contentPadding:
-                      EdgeInsets.symmetric(vertical: 10.0, horizontal: 7.0),
                       hintText: 'Username',
                     ),
                     controller: userNameController,
-                    validator: (val) => val.isEmpty ? 'Enter a preffered username' : null,
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      fillColor: Colors.grey[100],
-                      filled: true,
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 10.0, horizontal: 7.0),
-                      hintText: 'Age',
-                    ),
-                    controller: ageController,
-                    validator: (val) => val.isEmpty ? 'Enter an age' : null,
+                    validator: (val) =>
+                        val.isEmpty ? 'Enter a preffered username' : null,
                   ),
                   SizedBox(
                     height: 30,
@@ -136,18 +97,15 @@ class SignUpViewState extends State<SignUpView> {
                         : null,
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 30,
                   ),
                   MaterialButton(
                     onPressed: () async {
                       if (_registerFormKey.currentState.validate()) {
                         dynamic result = await _auth.signUpWithEmail(
-                            email: emailController.text,
-                            password: passwordController.text,
-                            firstName: firstNameController.text,
-                            lastName: lastNameController.text,
-                            userName: userNameController.text,
-                            age: ageController.text
+                          email: emailController.text,
+                          password: passwordController.text,
+                          userName: userNameController.text,
                         );
                         if (result == null) {
                           setState(() {
@@ -176,9 +134,15 @@ class SignUpViewState extends State<SignUpView> {
                       print('is pressed');
                       widget.toggleView();
                     },
-                    child: Text(
-                      'Have an account? Login',
-                      style: TextStyle(color: Colors.grey),
+                    child: RichText(
+                      text: TextSpan(
+                          text: 'Have an account? ',
+                          style: TextStyle(color: Colors.grey),
+                          children: <TextSpan>[
+                            TextSpan(
+                                text: 'Click here to login.',
+                                style: TextStyle(color: Colors.lightBlueAccent)),
+                          ]),
                     ),
                   )
                 ],

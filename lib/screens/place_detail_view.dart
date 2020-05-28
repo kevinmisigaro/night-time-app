@@ -49,10 +49,11 @@ class PlaceDetailState extends State<PlaceDetail> {
               ),
               Text(
                 '${widget.clubName}',
-                style: GoogleFonts.roboto(
-                    color: Colors.white,
-                    fontSize: 23,
-                    fontWeight: FontWeight.w600),
+                style:TextStyle(
+                  fontFamily: 'MonumentExtended',
+                  color: Colors.white,
+                  fontSize: 23
+                )
               ),
               SizedBox(
                 height: 20,

@@ -39,10 +39,7 @@ class AuthenticationService {
   Future signUpWithEmail({
     @required String email,
     @required String password,
-    @required String firstName,
-    @required String lastName,
     @required String userName,
-    @required String age
   }) async {
     try{
       AuthResult authResult = await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
@@ -54,11 +51,8 @@ class AuthenticationService {
       user.updateProfile(updateInfo);
 
       await Firestore.instance.collection('users').document(authResult.user.uid).setData({
-        'first_name': firstName,
-        'last_name': lastName,
         'user_name': userName,
         'email': authResult.user.email,
-        'age': age
       });
 
       return _userFromFirebaseUser(user);

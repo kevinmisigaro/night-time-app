@@ -59,8 +59,9 @@ class _HomeState extends State<Home> {
   Widget appBarText(String text) {
     return Text(
       '$text',
-      style:
-          GoogleFonts.roboto(color: Colors.white, fontWeight: FontWeight.w600),
+      style: TextStyle(
+       fontFamily: 'MonumentExtended', color: Colors.white, fontWeight: FontWeight.w600
+      )
     );
   }
 

@@ -15,6 +15,12 @@ class DatabaseService {
   final CollectionReference eventCollection =
       Firestore.instance.collection('events');
 
+  final CollectionReference userCollection = Firestore.instance.collection('users');
+
+   get userProfile {
+    return userCollection.document(uid).snapshots();
+  }
+
   //  //get clubs stream
   Stream<List<Club>> get clubs {
     return clubCollection.snapshots().map(_clubListFromSnapshot);

@@ -90,40 +90,40 @@ class RecommendDetail extends StatelessWidget {
             SizedBox(
               height: 40,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                OutlineButton(
-                    child: new Text(
-                      "Its Lit !!!",
-                      style: TextStyle(fontSize: 18),
-                    ),
-                    textColor: Colors.white,
-                    onPressed: () {},
-                    padding: EdgeInsets.all(10),
-                    borderSide: BorderSide(
-                        color: Colors.blueAccent,
-                        width: 1.0,
-                        style: BorderStyle.solid),
-                    shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(30.0),
-                    )),
-                OutlineButton(
-                    child: new Text(
-                      "Its a Bummer",
-                      style: TextStyle(fontSize: 18),
-                    ),
-                    textColor: Colors.white,
-                    onPressed: () {},
-                    borderSide: BorderSide(
-                        color: Colors.blueAccent,
-                        width: 1.0,
-                        style: BorderStyle.solid),
-                    shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(30.0),
-                    ))
-              ],
-            )
+//            Row(
+//              mainAxisAlignment: MainAxisAlignment.spaceAround,
+//              children: <Widget>[
+//                OutlineButton(
+//                    child: new Text(
+//                      "Its Lit !!!",
+//                      style: TextStyle(fontSize: 18),
+//                    ),
+//                    textColor: Colors.white,
+//                    onPressed: () {},
+//                    padding: EdgeInsets.all(10),
+//                    borderSide: BorderSide(
+//                        color: Colors.blueAccent,
+//                        width: 1.0,
+//                        style: BorderStyle.solid),
+//                    shape: new RoundedRectangleBorder(
+//                      borderRadius: new BorderRadius.circular(30.0),
+//                    )),
+//                OutlineButton(
+//                    child: new Text(
+//                      "Its a Bummer",
+//                      style: TextStyle(fontSize: 18),
+//                    ),
+//                    textColor: Colors.white,
+//                    onPressed: () {},
+//                    borderSide: BorderSide(
+//                        color: Colors.blueAccent,
+//                        width: 1.0,
+//                        style: BorderStyle.solid),
+//                    shape: new RoundedRectangleBorder(
+//                      borderRadius: new BorderRadius.circular(30.0),
+//                    ))
+//              ],
+//            )
           ],
         ),
       ),

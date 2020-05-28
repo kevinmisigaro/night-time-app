@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:night_life/models/user.dart';
+import 'package:night_life/services/database.dart';
 
 //widgets
 import 'package:night_life/widgets/home_section/places.dart';
@@ -27,7 +28,7 @@ class _HomePageState extends State<HomePage>{
   @override
   Widget build(BuildContext context) {
 
-    final person = Provider.of<User>(context).displayName;
+    final id = Provider.of<User>(context).uid;
 
     return ListView(
         children: <Widget>[
@@ -46,24 +47,34 @@ class _HomePageState extends State<HomePage>{
 
           SizedBox(height: 10,),
 
-          Text(
-//              'Going out tonight ${person[0].toUpperCase()}${person.substring(1)}?',
-          'Going out tonight?',
-              style: GoogleFonts.roboto(
-                  color: Colors.white,
-                  fontSize: 26,
-                  fontWeight: FontWeight.w700
-                  ),
-            ),
+          StreamBuilder(
+              stream: DatabaseService(uid: id).userProfile,
+              builder: (context, snapshot) {
+                if(!snapshot.hasData) {
+                  return Container();
+                } else{
+                  var document = snapshot.data['user_name'];
 
+                  return Text(
+                    'Going out ${document[0].toUpperCase()}${document.substring(1)}?',
+                    style: TextStyle(
+                      fontFamily: 'MonumentExtended',
+                      color: Colors.white,
+                      fontSize: 22,
+                      fontWeight: FontWeight.w600
+                    ),
+                  );
+                }
+              }
+          ),
 
           SizedBox(height: _standardHeight,),
 
           Text(
-            'Recommended',
+            'Tonight\'s recommendations',
             style: GoogleFonts.roboto(
-                color: Colors.white, 
-                fontSize: 23, 
+                color: Colors.grey[600],
+                fontSize: 21,
                 fontWeight: FontWeight.w700),
           ),
 
@@ -97,8 +108,8 @@ class _HomePageState extends State<HomePage>{
               Text(
                 'Upcoming Events',
                 style: GoogleFonts.roboto(
-                    color: Colors.white,
-                    fontSize: 23,
+                    color: Colors.grey[600],
+                    fontSize: 21,
                     fontWeight: FontWeight.w700),
               ),
               OutlineButton(
@@ -122,10 +133,10 @@ class _HomePageState extends State<HomePage>{
 
           Text(
                 'Places',
-                style: GoogleFonts.roboto(
-                    color: Colors.white,
-                    fontSize: 23,
-                    fontWeight: FontWeight.w700),
+            style: GoogleFonts.roboto(
+                color: Colors.grey[600],
+                fontSize: 21,
+                fontWeight: FontWeight.w700),
               ),
 
           Container(

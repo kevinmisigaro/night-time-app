@@ -83,10 +83,13 @@ class FavoritesView extends StatelessWidget {
                         break;
                       default:
                         return Container(
-                          child: Center(
-                            child: CircularProgressIndicator(),
-                          ),
-                        );
+                            child: Text(
+                              'You have no favorites',
+                              style: GoogleFonts.roboto(
+                                color: Colors.yellowAccent,
+                                fontSize: 20,
+                              ),
+                            ));
                         break;
                     }
                   }
