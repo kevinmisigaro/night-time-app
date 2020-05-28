@@ -1,7 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:night_life/models/club.dart';
 import 'package:night_life/models/user.dart';
 import 'package:night_life/services/authentication_service.dart';
 import 'package:provider/provider.dart';

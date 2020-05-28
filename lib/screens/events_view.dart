@@ -3,12 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:night_life/models/event.dart';
 import 'package:night_life/screens/event_detail_view.dart';
 import 'package:night_life/services/database.dart';
-import 'package:provider/provider.dart';
 
 class EventsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final events = Provider.of<List<Event>>(context);
 
     // TODO: implement build
     return Scaffold(
