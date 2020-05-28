@@ -26,6 +26,7 @@ class App extends StatelessWidget {
 //        StreamProvider<List<UserClubFavorites>>.value(value: DatabaseService().clubFavorites),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: Wrapper(),
       ),
     );

@@ -34,7 +34,7 @@ class Events extends StatelessWidget{
                       child: Stack(
                         children: <Widget>[
                           Image.asset(
-                            'assets/images/party1.jpg',
+                            'assets/images/party2.jpg',
                             fit: BoxFit.cover,
                           ),
                           Positioned(

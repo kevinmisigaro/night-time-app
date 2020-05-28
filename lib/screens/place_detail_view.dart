@@ -109,10 +109,10 @@ class PlaceDetailState extends State<PlaceDetail> {
                       isFav ? Icons.favorite : Icons.favorite_border
                   ),
                   onPressed: () {
-                    DatabaseService(uid: user.uid).handleUserFavorites(widget.id);
                     setState(() {
                       isFav = !isFav;
                     });
+                    DatabaseService(uid: user.uid).handleUserFavorites(widget.id);
                   }),
             ],
           ),

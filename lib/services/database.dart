@@ -22,7 +22,7 @@ class DatabaseService {
 
   //get events stream
   Stream<List<Event>> get events {
-    return eventCollection.snapshots().map(_eventListFromSnapShot);
+    return eventCollection.where('isDone', isEqualTo: false).snapshots().map(_eventListFromSnapShot);
   }
 
   Stream<List<Club>> get userDataStream {
@@ -72,6 +72,7 @@ class DatabaseService {
             theme: doc.data['theme'] ?? '',
             entranceFee: doc.data['entrance_fee'] ?? '',
             date: doc.data['date'] ?? '',
+            isDone: doc.data['isDone'] ?? false,
             alcoholPrice: doc.data['alcohol_price'] ?? 0))
         .toList();
   }

@@ -47,7 +47,8 @@ class _HomePageState extends State<HomePage>{
           SizedBox(height: 10,),
 
           Text(
-              'Going out tonight ${person[0].toUpperCase()}${person.substring(1)}?',
+//              'Going out tonight ${person[0].toUpperCase()}${person.substring(1)}?',
+          'Going out tonight?',
               style: GoogleFonts.roboto(
                   color: Colors.white,
                   fontSize: 26,
@@ -75,20 +76,20 @@ class _HomePageState extends State<HomePage>{
 
           SizedBox(height: _standardHeight,),
 
-           Text(
-                'Your Favorite Spots',
-                style: GoogleFonts.roboto(
-                    color: Colors.white,
-                    fontSize: 23,
-                    fontWeight: FontWeight.w700),
-              ),
-
-          Container(
-            height: 130.0,
-            child: favSpots
-          ),
-
-          SizedBox(height: _standardHeight,),
+//           Text(
+//                'Your Favorite Spots',
+//                style: GoogleFonts.roboto(
+//                    color: Colors.white,
+//                    fontSize: 23,
+//                    fontWeight: FontWeight.w700),
+//              ),
+//
+//          Container(
+//            height: 130.0,
+//            child: Favorites()
+//          ),
+//
+//          SizedBox(height: _standardHeight,),
 
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

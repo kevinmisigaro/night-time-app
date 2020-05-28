@@ -4,6 +4,7 @@ class Event {
   final String theme;
   final int alcoholPrice;
   final String entranceFee;
+  final bool isDone;
 
-  Event({this.eventName, this.date, this.theme, this.alcoholPrice, this.entranceFee});
+  Event({this.eventName, this.date, this.theme, this.alcoholPrice, this.entranceFee, this.isDone});
 }

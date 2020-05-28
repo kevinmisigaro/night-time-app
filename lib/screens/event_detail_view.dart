@@ -17,7 +17,6 @@ class EventDetail extends StatefulWidget {
 }
 
 class EventDetailState extends State<EventDetail> {
-  bool _isFavorite = false;
 
   @override
   Widget build(BuildContext context) {
@@ -111,19 +110,6 @@ class EventDetailState extends State<EventDetail> {
                     )
                   ]),
             ),
-            SizedBox(
-              height: 20,
-            ),
-            IconButton(
-                color: Colors.yellowAccent,
-                iconSize: 40,
-                icon: Icon(
-                    (_isFavorite) ? Icons.favorite : Icons.favorite_border),
-                onPressed: () {
-                  setState(() {
-                    _isFavorite = !_isFavorite;
-                  });
-                })
           ],
         ),
       ),
