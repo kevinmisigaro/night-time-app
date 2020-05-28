@@ -35,7 +35,7 @@ class SignUpViewState extends State<SignUpView> {
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 60),
             child: Form(
               key: _registerFormKey,
               child: Column(
@@ -49,7 +49,7 @@ class SignUpViewState extends State<SignUpView> {
                         fontWeight: FontWeight.w700),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 10,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
@@ -136,7 +136,7 @@ class SignUpViewState extends State<SignUpView> {
                         : null,
                   ),
                   SizedBox(
-                    height: 40,
+                    height: 10,
                   ),
                   MaterialButton(
                     onPressed: () async {
@@ -169,7 +169,7 @@ class SignUpViewState extends State<SignUpView> {
                     style: TextStyle(color: Colors.red, fontSize: 15.0),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 5,
                   ),
                   FlatButton(
                     onPressed: () {

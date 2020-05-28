@@ -22,15 +22,10 @@ class HomePage extends StatefulWidget{
 class _HomePageState extends State<HomePage>{
   final newDt = DateFormat.MMMEd().format(DateTime.now());
 
-  final morningHour = DateFormat.Hm().parse('06:00');
-  final noonHour = DateFormat.Hm().parse('12:00');
-  final eveningHour = DateFormat.Hm('en_US').parse('17:00');
-
   final double _standardHeight = 30;
 
   @override
   Widget build(BuildContext context) {
-    final currentHour = DateFormat.Hm().format(DateTime.now());
 
     final person = Provider.of<User>(context).displayName;
 
@@ -119,7 +114,7 @@ class _HomePageState extends State<HomePage>{
 
           Container(
             height: 130.0,
-            child: eventsList
+            child: Events()
           ),
 
           SizedBox(height: _standardHeight,),
@@ -134,7 +129,7 @@ class _HomePageState extends State<HomePage>{
 
           Container(
             height: 130,
-            child: placesList
+            child: Places()
           ),
         ],
       );

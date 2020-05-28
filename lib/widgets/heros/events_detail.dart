@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class RecommendDetail extends StatelessWidget {
-  final String name;
-  final String location;
+class EventsDetail extends StatelessWidget{
+  final String eventName;
+  final String date;
   final int alcoholPrice;
+  final String entrance;
 
-  RecommendDetail(
-      this.name, this.location, this.alcoholPrice
-      );
+
+  EventsDetail({this.eventName, this.entrance, this.date, this.alcoholPrice});
+
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    // TODO: implement build
+   return Scaffold(
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: Column(
@@ -20,7 +22,7 @@ class RecommendDetail extends StatelessWidget {
           children: <Widget>[
             GestureDetector(
               child: Hero(
-                tag: '${name}recommend',
+                tag: '${eventName}event',
                 child: Image.asset(
                   'assets/images/party2.jpg',
                   width: double.infinity,
@@ -34,20 +36,20 @@ class RecommendDetail extends StatelessWidget {
               height: 20,
             ),
 
-             Text(
-                name,
-                style: GoogleFonts.roboto(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 25,
-                ),
+            Text(
+              eventName,
+              style: GoogleFonts.roboto(
+                color: Colors.white,
+                fontWeight: FontWeight.w700,
+                fontSize: 25,
               ),
+            ),
 
             SizedBox(
               height: 50,
             ),
             Text(
-              'Location: $location',
+              'Date: $date',
               style: GoogleFonts.roboto(
                 color: Colors.white,
                 fontWeight: FontWeight.w600,
@@ -58,7 +60,7 @@ class RecommendDetail extends StatelessWidget {
               height: 20,
             ),
             Text(
-              'Entrance:  10,000 TZS',
+              'Entrance:  $entrance TZS',
               style: GoogleFonts.roboto(
                 color: Colors.white,
                 fontWeight: FontWeight.w600,
@@ -87,43 +89,6 @@ class RecommendDetail extends StatelessWidget {
                     )
                   ]),
             ),
-            SizedBox(
-              height: 40,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                OutlineButton(
-                    child: new Text(
-                      "Its Lit !!!",
-                      style: TextStyle(fontSize: 18),
-                    ),
-                    textColor: Colors.white,
-                    onPressed: () {},
-                    padding: EdgeInsets.all(10),
-                    borderSide: BorderSide(
-                        color: Colors.blueAccent,
-                        width: 1.0,
-                        style: BorderStyle.solid),
-                    shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(30.0),
-                    )),
-                OutlineButton(
-                    child: new Text(
-                      "Its a Bummer",
-                      style: TextStyle(fontSize: 18),
-                    ),
-                    textColor: Colors.white,
-                    onPressed: () {},
-                    borderSide: BorderSide(
-                        color: Colors.blueAccent,
-                        width: 1.0,
-                        style: BorderStyle.solid),
-                    shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(30.0),
-                    ))
-              ],
-            )
           ],
         ),
       ),

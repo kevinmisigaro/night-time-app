@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class RecommendDetail extends StatelessWidget {
+class PlaceDetail extends StatelessWidget {
   final String name;
   final String location;
   final int alcoholPrice;
 
-  RecommendDetail(
+  PlaceDetail(
       this.name, this.location, this.alcoholPrice
       );
 
@@ -20,7 +20,7 @@ class RecommendDetail extends StatelessWidget {
           children: <Widget>[
             GestureDetector(
               child: Hero(
-                tag: '${name}recommend',
+                tag: '${name}place',
                 child: Image.asset(
                   'assets/images/party2.jpg',
                   width: double.infinity,
@@ -34,14 +34,14 @@ class RecommendDetail extends StatelessWidget {
               height: 20,
             ),
 
-             Text(
-                name,
-                style: GoogleFonts.roboto(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 25,
-                ),
+            Text(
+              name,
+              style: GoogleFonts.roboto(
+                color: Colors.white,
+                fontWeight: FontWeight.w700,
+                fontSize: 25,
               ),
+            ),
 
             SizedBox(
               height: 50,
@@ -87,43 +87,6 @@ class RecommendDetail extends StatelessWidget {
                     )
                   ]),
             ),
-            SizedBox(
-              height: 40,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                OutlineButton(
-                    child: new Text(
-                      "Its Lit !!!",
-                      style: TextStyle(fontSize: 18),
-                    ),
-                    textColor: Colors.white,
-                    onPressed: () {},
-                    padding: EdgeInsets.all(10),
-                    borderSide: BorderSide(
-                        color: Colors.blueAccent,
-                        width: 1.0,
-                        style: BorderStyle.solid),
-                    shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(30.0),
-                    )),
-                OutlineButton(
-                    child: new Text(
-                      "Its a Bummer",
-                      style: TextStyle(fontSize: 18),
-                    ),
-                    textColor: Colors.white,
-                    onPressed: () {},
-                    borderSide: BorderSide(
-                        color: Colors.blueAccent,
-                        width: 1.0,
-                        style: BorderStyle.solid),
-                    shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(30.0),
-                    ))
-              ],
-            )
           ],
         ),
       ),

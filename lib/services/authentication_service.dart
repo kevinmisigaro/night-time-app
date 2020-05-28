@@ -53,8 +53,7 @@ class AuthenticationService {
 
       user.updateProfile(updateInfo);
 
-      Firestore.instance.collection('users').document().setData({
-        'id': authResult.user.uid,
+      await Firestore.instance.collection('users').document(authResult.user.uid).setData({
         'first_name': firstName,
         'last_name': lastName,
         'user_name': userName,

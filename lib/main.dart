@@ -17,12 +17,13 @@ void main() => runApp(App());
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+
     return MultiProvider(
       providers: [
         StreamProvider<User>.value(value: AuthenticationService().user),
         StreamProvider<List<Club>>.value(value: DatabaseService().clubs),
         StreamProvider<List<Event>>.value(value: DatabaseService().events),
+//        StreamProvider<List<UserClubFavorites>>.value(value: DatabaseService().clubFavorites),
       ],
       child: MaterialApp(
         home: Wrapper(),
