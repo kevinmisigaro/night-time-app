@@ -6,9 +6,11 @@ class EventsDetail extends StatelessWidget{
   final String date;
   final int alcoholPrice;
   final String entrance;
+  final String xFactor;
+  final String location;
 
 
-  EventsDetail({this.eventName, this.entrance, this.date, this.alcoholPrice});
+  EventsDetail({this.eventName, this.entrance, this.date, this.alcoholPrice, this.location, this.xFactor});
 
 
   @override
@@ -38,18 +40,38 @@ class EventsDetail extends StatelessWidget{
 
             Text(
               eventName,
-              style: GoogleFonts.roboto(
-                color: Colors.white,
-                fontWeight: FontWeight.w700,
-                fontSize: 25,
+              style: TextStyle(
+                  fontFamily: 'MonumentExtended', color: Colors.white, fontWeight: FontWeight.w600, fontSize: 23
               ),
             ),
 
             SizedBox(
-              height: 50,
+              height: 30,
             ),
             Text(
               'Date: $date',
+              style: GoogleFonts.roboto(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+                fontSize: 20,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              'Location: $location',
+              style: GoogleFonts.roboto(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+                fontSize: 20,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              'Special:  $xFactor',
               style: GoogleFonts.roboto(
                 color: Colors.white,
                 fontWeight: FontWeight.w600,

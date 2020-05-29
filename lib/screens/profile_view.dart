@@ -22,34 +22,40 @@ class ProfileView extends StatelessWidget {
             height: 70,
           ),
           StreamBuilder(
-            stream: DatabaseService(uid: id).userProfile,
+              stream: DatabaseService(uid: id).userProfile,
               builder: (context, snapshot) {
-                if(!snapshot.hasData) {
+                if (!snapshot.hasData) {
                   return Container();
-                } else{
+                } else {
                   var document = snapshot.data['user_name'];
 
                   return Text(
                     'Hey ${document[0].toUpperCase()}${document.substring(1)}',
                     style: GoogleFonts.roboto(
-                        color: Colors.white, fontSize: 23, fontWeight: FontWeight.w600),
+                        color: Colors.white,
+                        fontSize: 23,
+                        fontWeight: FontWeight.w600),
                   );
                 }
-              }
+              }),
+          SizedBox(
+            height: 40,
           ),
-
-          SizedBox(height: 40,),
-
           Center(
             child: Container(
               width: 300,
-              child: Text('Thanks for being part of the trial version of this app, this app was made with love and excitement. Would love any feedback you have!',
-                style: TextStyle(color: Colors.blueGrey, fontSize: 18,),
+              child: Text(
+                'Thanks for being part of the trial version of this app, this app'
+                    ' was made with love and excitement. Would love any feedback you have via this mail: kunbata93@gmail.com.'
+                ' Meanwhile, please enjoy the app!',
+                style: TextStyle(
+                  color: Colors.blueGrey,
+                  fontSize: 18,
+                ),
                 textAlign: TextAlign.center,
               ),
             ),
           ),
-
           SizedBox(
             height: 40,
           ),
@@ -57,9 +63,9 @@ class ProfileView extends StatelessWidget {
               child: OutlineButton(
                   child: new Text(
                     "Logout",
-                    style: TextStyle(fontSize: 25),
+                    style: TextStyle(fontSize: 20),
                   ),
-                  padding: EdgeInsets.symmetric(vertical: 7, horizontal: 25),
+                  padding: EdgeInsets.symmetric(vertical: 13, horizontal: 25),
                   textColor: Colors.white,
                   onPressed: () async {
                     await _auth.signOut();

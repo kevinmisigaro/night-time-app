@@ -79,6 +79,8 @@ class DatabaseService {
             entranceFee: doc.data['entrance_fee'] ?? '',
             date: doc.data['date'] ?? '',
             isDone: doc.data['isDone'] ?? false,
+            location: doc.data['location'] ?? '',
+            xFactor: doc.data['xfactor'] ?? '',
             alcoholPrice: doc.data['alcohol_price'] ?? 0))
         .toList();
   }

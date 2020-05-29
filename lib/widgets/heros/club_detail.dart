@@ -36,15 +36,13 @@ class RecommendDetail extends StatelessWidget {
 
              Text(
                 name,
-                style: GoogleFonts.roboto(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 25,
-                ),
+               style: TextStyle(
+                   fontFamily: 'MonumentExtended', color: Colors.white, fontWeight: FontWeight.w600, fontSize: 23
+               ),
               ),
 
             SizedBox(
-              height: 50,
+              height: 30,
             ),
             Text(
               'Location: $location',

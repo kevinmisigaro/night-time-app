@@ -27,6 +27,7 @@ class SignUpViewState extends State<SignUpView> {
   final AuthenticationService _auth = AuthenticationService();
 
   String error = '';
+  bool loading =  false;
 
   @override
   Widget build(BuildContext context) {
@@ -99,9 +100,14 @@ class SignUpViewState extends State<SignUpView> {
                   SizedBox(
                     height: 30,
                   ),
-                  MaterialButton(
+                  loading ? CircularProgressIndicator(
+                    backgroundColor: Colors.lightBlueAccent,
+                  ) : MaterialButton(
                     onPressed: () async {
                       if (_registerFormKey.currentState.validate()) {
+                        setState(() {
+                          loading = true;
+                        });
                         dynamic result = await _auth.signUpWithEmail(
                           email: emailController.text,
                           password: passwordController.text,
@@ -110,6 +116,7 @@ class SignUpViewState extends State<SignUpView> {
                         if (result == null) {
                           setState(() {
                             error = 'Please apply the valid email';
+                            loading = false;
                           });
                         }
                       }

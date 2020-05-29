@@ -24,6 +24,7 @@ class LoginViewState extends State<LoginView> {
   final AuthenticationService _auth = AuthenticationService();
 
   String error = '';
+  bool loading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -80,12 +81,18 @@ class LoginViewState extends State<LoginView> {
                 SizedBox(
                   height: 40,
                 ),
-                MaterialButton(
+                loading ? CircularProgressIndicator(
+                  backgroundColor: Colors.lightBlueAccent,
+                ) : MaterialButton(
                   onPressed: () async {
                     if (_loginFormKey.currentState.validate()) {
+                      setState(() {
+                        loading = true;
+                      });
                       dynamic result = await _auth.loginWithEmail(email: emailController.text, password: passwordController.text);
                       if(result == null){
                         setState(() {
+                          loading = false;
                           error = 'Could not login in with these credentials';
                         });
                       }

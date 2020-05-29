@@ -6,9 +6,7 @@ class PlaceDetail extends StatelessWidget {
   final String location;
   final int alcoholPrice;
 
-  PlaceDetail(
-      this.name, this.location, this.alcoholPrice
-      );
+  PlaceDetail(this.name, this.location, this.alcoholPrice);
 
   @override
   Widget build(BuildContext context) {
@@ -33,18 +31,16 @@ class PlaceDetail extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-
             Text(
               name,
-              style: GoogleFonts.roboto(
-                color: Colors.white,
-                fontWeight: FontWeight.w700,
-                fontSize: 25,
-              ),
+              style: TextStyle(
+                  fontFamily: 'MonumentExtended',
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 23),
             ),
-
             SizedBox(
-              height: 50,
+              height: 30,
             ),
             Text(
               'Location: $location',

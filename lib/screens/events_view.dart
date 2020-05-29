@@ -7,7 +7,6 @@ import 'package:night_life/services/database.dart';
 class EventsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     // TODO: implement build
     return Scaffold(
       backgroundColor: Colors.black,
@@ -26,10 +25,11 @@ class EventsView extends StatelessWidget {
               alignment: Alignment.topLeft,
               child: Text(
                 'Upcoming Events',
-                style: GoogleFonts.roboto(
-                    fontSize: 30,
+                style: TextStyle(
+                    fontFamily: 'MonumentExtended',
+                    color: Colors.white,
                     fontWeight: FontWeight.w600,
-                    color: Colors.white),
+                    fontSize: 23),
               ),
             ),
             SizedBox(
@@ -51,6 +51,10 @@ class EventsView extends StatelessWidget {
                         itemCount: events.length,
                         itemBuilder: (BuildContext context, int index) {
                           return Container(
+                            decoration: BoxDecoration(
+                                border: Border(
+                                    bottom: BorderSide(
+                                        width: 1.0, color: Colors.grey[800]))),
                             padding: EdgeInsets.symmetric(vertical: 15),
                             child: GestureDetector(
                                 onTap: () {
@@ -65,6 +69,9 @@ class EventsView extends StatelessWidget {
                                                     events[index].entranceFee,
                                                 alcoholPrice:
                                                     events[index].alcoholPrice,
+                                                xFactor: events[index].xFactor,
+                                                location:
+                                                    events[index].location,
                                               )));
                                 },
                                 child: Row(
@@ -74,7 +81,7 @@ class EventsView extends StatelessWidget {
                                       Text(
                                         events[index].eventName,
                                         style: GoogleFonts.roboto(
-                                          color: Colors.yellowAccent,
+                                          color: Colors.blueGrey,
                                           fontSize: 20,
                                         ),
                                       ),

@@ -6,8 +6,16 @@ class EventDetail extends StatefulWidget {
   final String entrance;
   final String theme;
   final int alcoholPrice;
+  final String xFactor;
+  final String location;
 
-  EventDetail({this.eventName, this.entrance, this.theme, this.alcoholPrice});
+  EventDetail(
+      {this.eventName,
+      this.entrance,
+      this.theme,
+      this.alcoholPrice,
+      this.xFactor,
+      this.location});
 
   @override
   State<StatefulWidget> createState() {
@@ -17,7 +25,6 @@ class EventDetail extends StatefulWidget {
 }
 
 class EventDetailState extends State<EventDetail> {
-
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -39,16 +46,16 @@ class EventDetailState extends State<EventDetail> {
             ),
             Text(
               widget.eventName,
-              style: GoogleFonts.roboto(
-                  color: Colors.yellowAccent,
-                  fontSize: 23,
-                  fontWeight: FontWeight.w800),
+              style: TextStyle(
+                  fontFamily: 'MonumentExtended',
+                  color: Colors.white,
+                  fontSize: 23),
             ),
             SizedBox(
               height: 20,
             ),
             Text(
-              'Location:  Maison',
+              'Location: ${widget.location}',
               style: GoogleFonts.roboto(
                 color: Colors.white,
                 fontWeight: FontWeight.w600,
@@ -70,7 +77,7 @@ class EventDetailState extends State<EventDetail> {
               height: 20,
             ),
             Text(
-              'Special Guest:  Burna Boy',
+              'Special:  ${widget.xFactor}',
               style: GoogleFonts.roboto(
                 color: Colors.white,
                 fontWeight: FontWeight.w600,

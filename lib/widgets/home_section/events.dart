@@ -4,7 +4,7 @@ import 'package:night_life/models/event.dart';
 import 'package:night_life/services/database.dart';
 import 'package:night_life/widgets/heros/events_detail.dart';
 
-class Events extends StatelessWidget{
+class Events extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -16,14 +16,13 @@ class Events extends StatelessWidget{
             child: CircularProgressIndicator(),
           );
         } else {
-
           List<Event> data = snapshot.data;
 
           return ListView(
             scrollDirection: Axis.horizontal,
             children: List.generate(
               data.length,
-                  (index) => GestureDetector(
+              (index) => GestureDetector(
                 child: Hero(
                   tag: '${data[index].eventName}event',
                   child: Card(
@@ -58,11 +57,13 @@ class Events extends StatelessWidget{
                       context,
                       MaterialPageRoute(
                           builder: (_) => EventsDetail(
-                            eventName: data[index].eventName,
-                            entrance: data[index].entranceFee,
-                            alcoholPrice: data[index].alcoholPrice,
-                             date: data[index].date,
-                          )));
+                                eventName: data[index].eventName,
+                                entrance: data[index].entranceFee,
+                                alcoholPrice: data[index].alcoholPrice,
+                                date: data[index].date,
+                                xFactor: data[index].xFactor,
+                                location: data[index].location,
+                              )));
                 },
               ),
             ),

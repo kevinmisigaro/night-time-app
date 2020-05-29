@@ -26,7 +26,7 @@ class FavoritesView extends StatelessWidget {
                         child: Text(
                       'You have no favorites',
                       style: GoogleFonts.roboto(
-                        color: Colors.yellowAccent,
+                        color: Colors.blueGrey,
                         fontSize: 20,
                       ),
                     ));
@@ -37,7 +37,7 @@ class FavoritesView extends StatelessWidget {
                             child: Text(
                           'You have no favorites',
                           style: GoogleFonts.roboto(
-                            color: Colors.yellowAccent,
+                            color: Colors.blueGrey,
                             fontSize: 20,
                           ),
                         ));
@@ -57,6 +57,9 @@ class FavoritesView extends StatelessWidget {
                             shrinkWrap: true,
                             itemBuilder: (BuildContext context, int index) {
                               return Container(
+                                  decoration: BoxDecoration(border: Border(
+                                      bottom: BorderSide(width: 1.0, color: Colors.grey[800])
+                                  )),
                                   padding: EdgeInsets.symmetric(vertical: 10),
                                   child: GestureDetector(
                                     onTap: () {
@@ -74,7 +77,7 @@ class FavoritesView extends StatelessWidget {
                                     child: Text(
                                       data[index].name,
                                       style: GoogleFonts.roboto(
-                                        color: Colors.yellowAccent,
+                                        color: Colors.blueGrey,
                                         fontSize: 20,
                                       ),
                                     ),
@@ -86,7 +89,7 @@ class FavoritesView extends StatelessWidget {
                             child: Text(
                               'You have no favorites',
                               style: GoogleFonts.roboto(
-                                color: Colors.yellowAccent,
+                                color: Colors.blueGrey,
                                 fontSize: 20,
                               ),
                             ));
