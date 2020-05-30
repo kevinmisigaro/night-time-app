@@ -80,14 +80,16 @@ class EventsView extends StatelessWidget {
                                     children: [
                                       Text(
                                         events[index].eventName,
-                                        style: GoogleFonts.roboto(
+                                        style: TextStyle(
+                                          fontFamily: 'PierSans',
                                           color: Colors.blueGrey,
                                           fontSize: 20,
                                         ),
                                       ),
                                       Text(
                                         events[index].date,
-                                        style: GoogleFonts.roboto(
+                                        style: TextStyle(
+                                          fontFamily: 'PierSans',
                                           color: Colors.grey,
                                           fontSize: 17,
                                           fontWeight: FontWeight.w500,

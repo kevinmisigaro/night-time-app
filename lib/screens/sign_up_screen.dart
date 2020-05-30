@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:night_life/services/authentication_service.dart';
 
 class SignUpView extends StatefulWidget {

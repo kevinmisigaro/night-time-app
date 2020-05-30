@@ -41,7 +41,8 @@ class Favorites extends StatelessWidget{
                             left: 10,
                             child: Text(
                               data[index].name,
-                              style: GoogleFonts.roboto(
+                              style: TextStyle(
+                                  fontFamily: 'PierSans',
                                   color: Colors.white,
                                   fontSize: 18,
                                   fontWeight: FontWeight.w700),

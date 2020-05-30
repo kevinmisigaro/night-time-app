@@ -11,7 +11,12 @@ class PlaceDetail extends StatefulWidget {
   final int clubAlcoholPrice;
   final List userLiked;
 
-  PlaceDetail({this.id,this.clubName, this.clubLocation, this.clubAlcoholPrice, this.userLiked});
+  PlaceDetail(
+      {this.id,
+      this.clubName,
+      this.clubLocation,
+      this.clubAlcoholPrice,
+      this.userLiked});
 
   @override
   State<StatefulWidget> createState() {
@@ -21,7 +26,6 @@ class PlaceDetail extends StatefulWidget {
 }
 
 class PlaceDetailState extends State<PlaceDetail> {
-
   bool isFav = true;
 
   @override
@@ -47,21 +51,19 @@ class PlaceDetailState extends State<PlaceDetail> {
               SizedBox(
                 height: 20,
               ),
-              Text(
-                '${widget.clubName}',
-                style:TextStyle(
-                  fontFamily: 'MonumentExtended',
-                  color: Colors.white,
-                  fontSize: 23
-                )
-              ),
+              Text('${widget.clubName}',
+                  style: TextStyle(
+                      fontFamily: 'PierSans',
+                      color: Colors.white,
+                      fontSize: 23)),
               SizedBox(
                 height: 20,
               ),
               Text(
                 'Location:  ${widget.clubLocation}',
-                style: GoogleFonts.roboto(
-                  color: Colors.white,
+                style: TextStyle(
+                  fontFamily: 'PierSans',
+                  color: Colors.blueGrey,
                   fontWeight: FontWeight.w600,
                   fontSize: 20,
                 ),
@@ -71,8 +73,9 @@ class PlaceDetailState extends State<PlaceDetail> {
               ),
               Text(
                 'Entrance:  10,000 TZS',
-                style: GoogleFonts.roboto(
-                  color: Colors.white,
+                style: TextStyle(
+                  fontFamily: 'PierSans',
+                  color: Colors.blueGrey,
                   fontWeight: FontWeight.w600,
                   fontSize: 20,
                 ),
@@ -83,8 +86,9 @@ class PlaceDetailState extends State<PlaceDetail> {
               RichText(
                 text: TextSpan(
                     text: 'Alcohol Price:  ',
-                    style: GoogleFonts.roboto(
-                      color: Colors.white,
+                    style: TextStyle(
+                      fontFamily: 'PierSans',
+                      color: Colors.blueGrey,
                       fontWeight: FontWeight.w600,
                       fontSize: 20,
                     ),
@@ -102,18 +106,16 @@ class PlaceDetailState extends State<PlaceDetail> {
               SizedBox(
                 height: 40,
               ),
-
               IconButton(
                   color: Colors.yellowAccent,
                   iconSize: 40,
-                  icon: Icon(
-                      isFav ? Icons.favorite : Icons.favorite_border
-                  ),
+                  icon: Icon(isFav ? Icons.favorite : Icons.favorite_border),
                   onPressed: () {
                     setState(() {
                       isFav = !isFav;
                     });
-                    DatabaseService(uid: user.uid).handleUserFavorites(widget.id);
+                    DatabaseService(uid: user.uid)
+                        .handleUserFavorites(widget.id);
                   }),
             ],
           ),

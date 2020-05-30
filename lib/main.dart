@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:night_life/models/event.dart';
 import 'package:night_life/models/user.dart';
 import 'package:night_life/screens/favorites_view.dart';

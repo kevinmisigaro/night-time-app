@@ -25,7 +25,8 @@ class FavoritesView extends StatelessWidget {
                     return Container(
                         child: Text(
                       'You have no favorites',
-                      style: GoogleFonts.roboto(
+                      style: TextStyle(
+                        fontFamily: 'PierSans',
                         color: Colors.blueGrey,
                         fontSize: 20,
                       ),
@@ -36,7 +37,8 @@ class FavoritesView extends StatelessWidget {
                         return Container(
                             child: Text(
                           'You have no favorites',
-                          style: GoogleFonts.roboto(
+                          style: TextStyle(
+                            fontFamily: 'PierSans',
                             color: Colors.blueGrey,
                             fontSize: 20,
                           ),
@@ -76,7 +78,8 @@ class FavoritesView extends StatelessWidget {
                                     },
                                     child: Text(
                                       data[index].name,
-                                      style: GoogleFonts.roboto(
+                                      style: TextStyle(
+                                        fontFamily: 'PierSans',
                                         color: Colors.blueGrey,
                                         fontSize: 20,
                                       ),
@@ -88,7 +91,8 @@ class FavoritesView extends StatelessWidget {
                         return Container(
                             child: Text(
                               'You have no favorites',
-                              style: GoogleFonts.roboto(
+                              style: TextStyle(
+                                fontFamily: 'PierSans',
                                 color: Colors.blueGrey,
                                 fontSize: 20,
                               ),

@@ -34,7 +34,7 @@ class PlaceDetail extends StatelessWidget {
             Text(
               name,
               style: TextStyle(
-                  fontFamily: 'MonumentExtended',
+                  fontFamily: 'PierSans',
                   color: Colors.white,
                   fontWeight: FontWeight.w600,
                   fontSize: 23),
@@ -44,8 +44,9 @@ class PlaceDetail extends StatelessWidget {
             ),
             Text(
               'Location: $location',
-              style: GoogleFonts.roboto(
-                color: Colors.white,
+              style: TextStyle(
+                fontFamily: 'PierSans',
+                color: Colors.blueGrey,
                 fontWeight: FontWeight.w600,
                 fontSize: 20,
               ),
@@ -55,8 +56,9 @@ class PlaceDetail extends StatelessWidget {
             ),
             Text(
               'Entrance:  10,000 TZS',
-              style: GoogleFonts.roboto(
-                color: Colors.white,
+              style: TextStyle(
+                fontFamily: 'PierSans',
+                color: Colors.blueGrey,
                 fontWeight: FontWeight.w600,
                 fontSize: 20,
               ),
@@ -67,8 +69,9 @@ class PlaceDetail extends StatelessWidget {
             RichText(
               text: TextSpan(
                   text: 'Alcohol Price:  ',
-                  style: GoogleFonts.roboto(
-                    color: Colors.white,
+                  style:TextStyle(
+                    fontFamily: 'PierSans',
+                    color: Colors.blueGrey,
                     fontWeight: FontWeight.w600,
                     fontSize: 20,
                   ),

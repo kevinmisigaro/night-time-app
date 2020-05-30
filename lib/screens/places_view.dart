@@ -53,7 +53,8 @@ class PlacesView extends StatelessWidget {
                             },
                             child: Text(
                               clubs[index].name,
-                              style: GoogleFonts.roboto(
+                              style: TextStyle(
+                                fontFamily: 'PierSans',
                                 color: Colors.blueGrey,
                                 fontSize: 20,
                               ),

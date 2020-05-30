@@ -38,7 +38,8 @@ class _HomePageState extends State<HomePage>{
 
           Text(
             '$newDt',
-            style: GoogleFonts.roboto(
+            style: TextStyle(
+              fontFamily: 'PierSans',
                 color: Colors.grey,
                 fontSize: 17,
                 fontWeight: FontWeight.w500,
@@ -58,7 +59,7 @@ class _HomePageState extends State<HomePage>{
                   return Text(
                     'Going out ${document[0].toUpperCase()}${document.substring(1)}?',
                     style: TextStyle(
-                      fontFamily: 'MonumentExtended',
+                      fontFamily: 'PierSans',
                       color: Colors.white,
                       fontSize: 22,
                       fontWeight: FontWeight.w600
@@ -72,7 +73,8 @@ class _HomePageState extends State<HomePage>{
 
           Text(
             'Tonight\'s recommendations',
-            style: GoogleFonts.roboto(
+            style: TextStyle(
+              fontFamily: 'PierSans',
                 color: Colors.grey[600],
                 fontSize: 21,
                 fontWeight: FontWeight.w700),
@@ -107,7 +109,8 @@ class _HomePageState extends State<HomePage>{
             children: <Widget>[
               Text(
                 'Upcoming Events',
-                style: GoogleFonts.roboto(
+                style: TextStyle(
+                  fontFamily: 'PierSans',
                     color: Colors.grey[600],
                     fontSize: 21,
                     fontWeight: FontWeight.w700),
@@ -133,7 +136,8 @@ class _HomePageState extends State<HomePage>{
 
           Text(
                 'Places',
-            style: GoogleFonts.roboto(
+            style: TextStyle(
+                fontFamily: 'PierSans',
                 color: Colors.grey[600],
                 fontSize: 21,
                 fontWeight: FontWeight.w700),

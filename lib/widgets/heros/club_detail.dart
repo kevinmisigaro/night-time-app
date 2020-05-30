@@ -37,7 +37,10 @@ class RecommendDetail extends StatelessWidget {
              Text(
                 name,
                style: TextStyle(
-                   fontFamily: 'MonumentExtended', color: Colors.white, fontWeight: FontWeight.w600, fontSize: 23
+                   fontFamily: 'PierSans',
+                   color: Colors.white,
+                   fontWeight: FontWeight.w600,
+                   fontSize: 23
                ),
               ),
 
@@ -46,8 +49,9 @@ class RecommendDetail extends StatelessWidget {
             ),
             Text(
               'Location: $location',
-              style: GoogleFonts.roboto(
-                color: Colors.white,
+              style: TextStyle(
+                fontFamily: 'PierSans',
+                color: Colors.blueGrey,
                 fontWeight: FontWeight.w600,
                 fontSize: 20,
               ),
@@ -57,8 +61,9 @@ class RecommendDetail extends StatelessWidget {
             ),
             Text(
               'Entrance:  10,000 TZS',
-              style: GoogleFonts.roboto(
-                color: Colors.white,
+              style: TextStyle(
+                fontFamily: 'PierSans',
+                color: Colors.blueGrey,
                 fontWeight: FontWeight.w600,
                 fontSize: 20,
               ),
@@ -69,8 +74,9 @@ class RecommendDetail extends StatelessWidget {
             RichText(
               text: TextSpan(
                   text: 'Alcohol Price:  ',
-                  style: GoogleFonts.roboto(
-                    color: Colors.white,
+                  style:TextStyle(
+                    fontFamily: 'PierSans',
+                    color: Colors.blueGrey,
                     fontWeight: FontWeight.w600,
                     fontSize: 20,
                   ),

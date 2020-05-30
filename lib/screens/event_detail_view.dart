@@ -47,7 +47,7 @@ class EventDetailState extends State<EventDetail> {
             Text(
               widget.eventName,
               style: TextStyle(
-                  fontFamily: 'MonumentExtended',
+                  fontFamily: 'PierSans',
                   color: Colors.white,
                   fontSize: 23),
             ),
@@ -56,8 +56,9 @@ class EventDetailState extends State<EventDetail> {
             ),
             Text(
               'Location: ${widget.location}',
-              style: GoogleFonts.roboto(
-                color: Colors.white,
+              style: TextStyle(
+                fontFamily: 'PierSans',
+                color: Colors.blueGrey,
                 fontWeight: FontWeight.w600,
                 fontSize: 20,
               ),
@@ -67,8 +68,9 @@ class EventDetailState extends State<EventDetail> {
             ),
             Text(
               'Entrance:  ${widget.entrance} TZS',
-              style: GoogleFonts.roboto(
-                color: Colors.white,
+              style: TextStyle(
+                fontFamily: 'PierSans',
+                color: Colors.blueGrey,
                 fontWeight: FontWeight.w600,
                 fontSize: 20,
               ),
@@ -78,8 +80,9 @@ class EventDetailState extends State<EventDetail> {
             ),
             Text(
               'Special:  ${widget.xFactor}',
-              style: GoogleFonts.roboto(
-                color: Colors.white,
+              style: TextStyle(
+                fontFamily: 'PierSans',
+                color: Colors.blueGrey,
                 fontWeight: FontWeight.w600,
                 fontSize: 20,
               ),
@@ -89,8 +92,9 @@ class EventDetailState extends State<EventDetail> {
             ),
             Text(
               'Theme:  ${widget.theme}',
-              style: GoogleFonts.roboto(
-                color: Colors.white,
+              style: TextStyle(
+                fontFamily: 'PierSans',
+                color: Colors.blueGrey,
                 fontWeight: FontWeight.w600,
                 fontSize: 20,
               ),
@@ -101,8 +105,9 @@ class EventDetailState extends State<EventDetail> {
             RichText(
               text: TextSpan(
                   text: 'Alcohol Price:  ',
-                  style: GoogleFonts.roboto(
-                    color: Colors.white,
+                  style: TextStyle(
+                    fontFamily: 'PierSans',
+                    color: Colors.blueGrey,
                     fontWeight: FontWeight.w600,
                     fontSize: 20,
                   ),
