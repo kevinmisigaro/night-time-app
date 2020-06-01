@@ -67,7 +67,7 @@ class EventDetailState extends State<EventDetail> {
               height: 20,
             ),
             Text(
-              'Entrance:  ${widget.entrance} TZS',
+              'Entrance: ${(widget.entrance == 'none')? 'Free': '${widget.entrance} TZS'}' ,
               style: TextStyle(
                 fontFamily: 'PierSans',
                 color: Colors.blueGrey,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:night_life/models/event.dart';
 import 'package:night_life/screens/event_detail_view.dart';
 import 'package:night_life/services/database.dart';
@@ -21,17 +20,21 @@ class EventsView extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Align(
+
+            Container(
+              padding: EdgeInsets.only(top: 0.0, bottom: 15.0),
               alignment: Alignment.topLeft,
               child: Text(
-                'Upcoming Events',
-                style: TextStyle(
-                    fontFamily: 'MonumentExtended',
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 23),
+                  'Upcoming Events',
+                  style: TextStyle(
+                      fontFamily: 'MonumentExtended',
+                      fontSize: 22,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500
+                  )
               ),
             ),
+
             SizedBox(
               height: 20,
             ),

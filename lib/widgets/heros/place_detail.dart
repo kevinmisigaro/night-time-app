@@ -5,8 +5,9 @@ class PlaceDetail extends StatelessWidget {
   final String name;
   final String location;
   final int alcoholPrice;
+  final String type;
 
-  PlaceDetail(this.name, this.location, this.alcoholPrice);
+  PlaceDetail(this.name, this.location, this.alcoholPrice, this.type);
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +56,7 @@ class PlaceDetail extends StatelessWidget {
               height: 20,
             ),
             Text(
-              'Entrance:  10,000 TZS',
+              'Type: $type',
               style: TextStyle(
                 fontFamily: 'PierSans',
                 color: Colors.blueGrey,

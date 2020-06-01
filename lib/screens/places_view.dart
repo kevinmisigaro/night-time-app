@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:night_life/models/club.dart';
 import 'package:night_life/screens/place_detail_view.dart';
 import 'package:night_life/services/database.dart';
 import 'package:provider/provider.dart';
 
 class PlacesView extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     final clubs = Provider.of<List<Club>>(context);
@@ -17,6 +17,21 @@ class PlacesView extends StatelessWidget {
       ),
       child: Column(
         children: <Widget>[
+          
+          Container(
+            padding: EdgeInsets.only(top: 0.0, bottom: 18.0),
+            alignment: Alignment.topLeft,
+            child: Text(
+                'Places',
+                style: TextStyle(
+                    fontFamily: 'MonumentExtended',
+                    fontSize: 22,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500
+                )
+            ),
+          ),
+          
           StreamBuilder(
             stream: DatabaseService().clubs,
             builder: (context, snapshot) {
@@ -49,6 +64,7 @@ class PlacesView extends StatelessWidget {
                                             clubAlcoholPrice:
                                                 clubs[index].alcoholPrice,
                                             userLiked: clubs[index].likes,
+                                            type: clubs[index].type,
                                           )));
                             },
                             child: Text(

@@ -58,7 +58,8 @@ class Recommended extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (_) => RecommendDetail(
-                             data[index].name, data[index].location, data[index].alcoholPrice
+                             data[index].name, data[index].location,
+                              data[index].alcoholPrice, data[index].type
                           )));
                 },
               ),

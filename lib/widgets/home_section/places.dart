@@ -59,7 +59,8 @@ class Places extends StatelessWidget{
                      context,
                      MaterialPageRoute(
                          builder: (_) => PlaceDetail(
-                             data[index].name, data[index].location, data[index].alcoholPrice
+                             data[index].name, data[index].location,
+                             data[index].alcoholPrice, data[index].type
                          )));
                },
              ),

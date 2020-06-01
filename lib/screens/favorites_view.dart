@@ -6,6 +6,7 @@ import 'package:night_life/services/database.dart';
 import 'package:provider/provider.dart';
 
 class FavoritesView extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     final id = Provider.of<User>(context).uid;
@@ -17,6 +18,21 @@ class FavoritesView extends StatelessWidget {
       ),
       child: Column(
         children: <Widget>[
+
+          Container(
+            padding: EdgeInsets.only(top: 0.0, bottom: 18.0),
+            alignment: Alignment.topLeft,
+            child: Text(
+                'Favorites',
+                style: TextStyle(
+                    fontFamily: 'MonumentExtended',
+                    fontSize: 22,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500
+                )
+            ),
+          ),
+
           Container(
             child: StreamBuilder(
                 stream: DatabaseService(uid: id).clubFavorites,

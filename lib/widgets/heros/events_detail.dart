@@ -88,7 +88,7 @@ class EventsDetail extends StatelessWidget{
               height: 20,
             ),
             Text(
-              'Entrance:  $entrance TZS',
+              'Entrance: ${(entrance == 'none')? 'Free': '$entrance TZS'}',
               style: TextStyle(
                 fontFamily: 'PierSans',
                 color: Colors.blueGrey,

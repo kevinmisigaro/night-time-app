@@ -18,9 +18,21 @@ class ProfileView extends StatelessWidget {
       ),
       child: Column(
         children: <Widget>[
-          SizedBox(
-            height: 70,
+
+          Container(
+            padding: EdgeInsets.only(top: 0.0, bottom: 60.0),
+            alignment: Alignment.topLeft,
+            child: Text(
+                'Your Profile',
+                style: TextStyle(
+                    fontFamily: 'MonumentExtended',
+                    fontSize: 22,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500
+                )
+            ),
           ),
+
           StreamBuilder(
               stream: DatabaseService(uid: id).userProfile,
               builder: (context, snapshot) {

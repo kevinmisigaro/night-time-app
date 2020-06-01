@@ -10,13 +10,17 @@ class PlaceDetail extends StatefulWidget {
   final String clubLocation;
   final int clubAlcoholPrice;
   final List userLiked;
+  final String type;
 
   PlaceDetail(
-      {this.id,
+      {
+        this.id,
       this.clubName,
       this.clubLocation,
       this.clubAlcoholPrice,
-      this.userLiked});
+      this.userLiked,
+        this.type
+      });
 
   @override
   State<StatefulWidget> createState() {
@@ -72,7 +76,7 @@ class PlaceDetailState extends State<PlaceDetail> {
                 height: 20,
               ),
               Text(
-                'Entrance:  10,000 TZS',
+                'Type: ${widget.type}',
                 style: TextStyle(
                   fontFamily: 'PierSans',
                   color: Colors.blueGrey,
