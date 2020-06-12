@@ -32,9 +32,9 @@ class WrapperState extends State<Wrapper>{
     //return either Home or Authenticate
     if(user == null){
       if(showSignIn){
-        return LoginView(toggleView);
-      } else {
         return SignUpView(toggleView);
+      } else {
+        return LoginView(toggleView);
       }
     } else {
       return Home();

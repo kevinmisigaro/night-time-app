@@ -2,15 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:night_life/models/club.dart';
 import 'package:night_life/screens/place_detail_view.dart';
 import 'package:night_life/services/database.dart';
-import 'package:provider/provider.dart';
 
 class PlacesView extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-    final clubs = Provider.of<List<Club>>(context);
 
-    // TODO: implement build
     return SingleChildScrollView(
       padding: EdgeInsets.symmetric(
         horizontal: 20,
@@ -60,15 +56,15 @@ class PlacesView extends StatelessWidget {
                                       builder: (_) => PlaceDetail(
                                             id: data[index].id,
                                             clubName: data[index].name,
-                                            clubLocation: clubs[index].location,
+                                            clubLocation: data[index].location,
                                             clubAlcoholPrice:
-                                                clubs[index].alcoholPrice,
-                                            userLiked: clubs[index].likes,
-                                            type: clubs[index].type,
+                                                data[index].alcoholPrice,
+                                            userLiked: data[index].likes,
+                                            type: data[index].type,
                                           )));
                             },
                             child: Text(
-                              clubs[index].name,
+                              data[index].name,
                               style: TextStyle(
                                 fontFamily: 'PierSans',
                                 color: Colors.blueGrey,

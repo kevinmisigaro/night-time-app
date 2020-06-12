@@ -24,7 +24,7 @@ class PlaceDetail extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
+
     return PlaceDetailState();
   }
 }
@@ -38,7 +38,6 @@ class PlaceDetailState extends State<PlaceDetail> {
 
     (widget.userLiked.contains(user.uid)) ? isFav = isFav : isFav = !isFav;
 
-    // TODO: implement build
     return Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(

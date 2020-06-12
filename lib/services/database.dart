@@ -15,29 +15,39 @@ class DatabaseService {
   final CollectionReference eventCollection =
       Firestore.instance.collection('events');
 
-  final CollectionReference userCollection = Firestore.instance.collection('users');
+  final CollectionReference userCollection =
+      Firestore.instance.collection('users');
 
-   get userProfile {
+  get userProfile {
     return userCollection.document(uid).snapshots();
   }
 
-  //  //get clubs stream
+  //get clubs stream
   Stream<List<Club>> get clubs {
     return clubCollection.snapshots().map(_clubListFromSnapshot);
   }
 
   //get events stream
   Stream<List<Event>> get events {
-    return eventCollection.where('isDone', isEqualTo: false).snapshots().map(_eventListFromSnapShot);
+    return eventCollection
+        .where('isDone', isEqualTo: false)
+        .snapshots()
+        .map(_eventListFromSnapShot);
   }
 
   Stream<List<Club>> get userDataStream {
-    return clubCollection.where('recommended', isEqualTo: true).snapshots().map(_clubListFromSnapshot);
+    return clubCollection
+        .where('recommended', isEqualTo: true)
+        .snapshots()
+        .map(_clubListFromSnapshot);
   }
 
   //get club favorites list from snapshot
   Stream<List<UserClubFavorites>> get clubFavorites {
-    return clubCollection.where('userLikes', arrayContains: uid).snapshots().map(_userClubListFromSnapshot);
+    return clubCollection
+        .where('userLikes', arrayContains: uid)
+        .snapshots()
+        .map(_userClubListFromSnapshot);
   }
 
   List<UserClubFavorites> _userClubListFromSnapshot(QuerySnapshot snapshot) {
@@ -49,11 +59,9 @@ class DatabaseService {
             userId: uid ?? '',
             clubId: doc.documentID,
             likes: doc.data['userLikes'],
-            alcoholPrice: doc.data['alcohol_price'] ?? 0)
-            )
+            alcoholPrice: doc.data['alcohol_price'] ?? 0))
         .toList();
   }
-
 
   //club list from snapshot
   List<Club> _clubListFromSnapshot(QuerySnapshot snapshot) {
@@ -65,8 +73,7 @@ class DatabaseService {
             location: doc.data['location'] ?? '',
             recommended: doc.data['recommended'] ?? false,
             alcoholPrice: doc.data['alcohol_price'] ?? 0,
-            likes: doc.data['userLikes'] ?? []
-    ))
+            likes: doc.data['userLikes'] ?? []))
         .toList();
   }
 
@@ -87,34 +94,30 @@ class DatabaseService {
 
   //function used to handle user favorites
   Future handleUserFavorites(String clubId) async {
+    //get document snapshot for particular club Id
+    DocumentSnapshot ref = await clubCollection.document(clubId).get();
 
-      //get document snapshot for particular club Id
-      DocumentSnapshot ref = await clubCollection.document(clubId).get();
-
-      //check if reference exists
-      if (ref.exists) {
-        //check if reference contains the same clubId
-        if (ref.data['userLikes'].contains(uid)) {
-          //remove the object if true
-          await clubCollection.document(clubId).updateData({
-            'userLikes': FieldValue.arrayRemove([uid])
-          });
-          print('array removed'); //print for debugging
-        } else {
-          //if club id doesn't exist, add a new one to the array
-          await clubCollection.document(clubId).updateData({
-            'userLikes': FieldValue.arrayUnion([uid])
-          });
-          print('array added'); //print for debugging
-        }
+    //check if reference exists
+    if (ref.exists) {
+      //check if reference contains the same clubId
+      if (ref.data['userLikes'].contains(uid)) {
+        //remove the object if true
+        await clubCollection.document(clubId).updateData({
+          'userLikes': FieldValue.arrayRemove([uid])
+        });
+        print('array removed'); //print for debugging
       } else {
-        //if reference doesn't exist, add new record
-        await clubCollection.document(clubId).setData({
-          'userLikes': [uid]
-        }, merge: true).whenComplete(() => print('set new array'));
+        //if club id doesn't exist, add a new one to the array
+        await clubCollection.document(clubId).updateData({
+          'userLikes': FieldValue.arrayUnion([uid])
+        });
+        print('array added'); //print for debugging
       }
-  } 
-
-  
-
+    } else {
+      //if reference doesn't exist, add new record
+      await clubCollection.document(clubId).setData({
+        'userLikes': [uid]
+      }, merge: true).whenComplete(() => print('set new array'));
+    }
+  }
 }
