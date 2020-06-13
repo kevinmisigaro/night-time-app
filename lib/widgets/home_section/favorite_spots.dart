@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:night_life/models/club.dart';
 import 'package:night_life/models/user.dart';
 import 'package:night_life/services/database.dart';
 
@@ -7,7 +8,7 @@ class Favorites extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return StreamBuilder<List<UserClubFavorites>>(
+    return StreamBuilder<List<Club>>(
       stream: DatabaseService().clubFavorites,
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
@@ -16,7 +17,7 @@ class Favorites extends StatelessWidget{
           );
         } else {
 
-          List<UserClubFavorites> data = snapshot.data;
+          List<Club> data = snapshot.data;
 
           return ListView(
             scrollDirection: Axis.horizontal,

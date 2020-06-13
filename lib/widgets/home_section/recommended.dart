@@ -15,7 +15,6 @@ class Recommended extends StatelessWidget {
             child: CircularProgressIndicator(),
           );
         } else {
-
           List<Club> data = snapshot.data;
 
           return ListView(
@@ -32,10 +31,10 @@ class Recommended extends StatelessWidget {
                       height: 110.0,
                       child: Stack(
                         children: <Widget>[
-                          Image.asset(
-                            'assets/images/party1.jpg',
-                            fit: BoxFit.cover,
-                          ),
+                          Image.network(data[index].img,
+                              fit: BoxFit.cover,
+                              color: Color.fromRGBO(255, 255, 255, 0.8),
+                              colorBlendMode: BlendMode.modulate),
                           Positioned(
                             top: 80,
                             left: 10,
@@ -57,10 +56,7 @@ class Recommended extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (_) => RecommendDetail(
-                             data[index].name, data[index].location,
-                              data[index].alcoholPrice, data[index].type
-                          )));
+                          builder: (_) => RecommendDetail(data[index])));
                 },
               ),
             ),

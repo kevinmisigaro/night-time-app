@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:night_life/models/club.dart';
 
 class PlaceDetail extends StatelessWidget {
-  final String name;
-  final String location;
-  final int alcoholPrice;
-  final String type;
+  final Club place;
 
-  PlaceDetail(this.name, this.location, this.alcoholPrice, this.type);
+  PlaceDetail(this.place);
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +17,9 @@ class PlaceDetail extends StatelessWidget {
           children: <Widget>[
             GestureDetector(
               child: Hero(
-                tag: '${name}place',
-                child: Image.asset(
-                  'assets/images/party2.jpg',
+                tag: '${place.name}place',
+                child: Image.network(
+                  place.img,
                   width: double.infinity,
                 ),
               ),
@@ -33,7 +31,7 @@ class PlaceDetail extends StatelessWidget {
               height: 20,
             ),
             Text(
-              name,
+              place.name,
               style: TextStyle(
                   fontFamily: 'PierSans',
                   color: Colors.white,
@@ -44,7 +42,7 @@ class PlaceDetail extends StatelessWidget {
               height: 30,
             ),
             Text(
-              'Location: $location',
+              'Location: ${place.location}',
               style: TextStyle(
                 fontFamily: 'PierSans',
                 color: Colors.blueGrey,
@@ -56,7 +54,7 @@ class PlaceDetail extends StatelessWidget {
               height: 20,
             ),
             Text(
-              'Type: $type',
+              'Type: ${place.type}',
               style: TextStyle(
                 fontFamily: 'PierSans',
                 color: Colors.blueGrey,
@@ -70,7 +68,7 @@ class PlaceDetail extends StatelessWidget {
             RichText(
               text: TextSpan(
                   text: 'Alcohol Price:  ',
-                  style:TextStyle(
+                  style: TextStyle(
                     fontFamily: 'PierSans',
                     color: Colors.blueGrey,
                     fontWeight: FontWeight.w600,
@@ -78,7 +76,7 @@ class PlaceDetail extends StatelessWidget {
                   ),
                   children: [
                     TextSpan(
-                      text: '$alcoholPrice',
+                      text: '${place.alcoholPrice}',
                       style: GoogleFonts.roboto(
                         color: Colors.yellowAccent,
                         fontWeight: FontWeight.w600,

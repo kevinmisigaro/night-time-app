@@ -47,10 +47,10 @@ class Events extends StatelessWidget {
                         height: 110.0,
                         child: Stack(
                           children: <Widget>[
-                            Image.asset(
-                              'assets/images/party2.jpg',
-                              fit: BoxFit.cover,
-                            ),
+                            Image.network(data[index].img,
+                                fit: BoxFit.cover,
+                                color: Color.fromRGBO(255, 255, 255, 0.7),
+                                colorBlendMode: BlendMode.modulate),
                             Positioned(
                               top: 80,
                               left: 10,
@@ -73,12 +73,7 @@ class Events extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (_) => EventsDetail(
-                              eventName: data[index].eventName,
-                              entrance: data[index].entranceFee,
-                              alcoholPrice: data[index].alcoholPrice,
-                              date: data[index].date,
-                              xFactor: data[index].xFactor,
-                              location: data[index].location,
+                              data[index]
                             )));
                   },
                 ),

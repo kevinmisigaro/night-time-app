@@ -1,21 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:night_life/models/event.dart';
 
 class EventDetail extends StatefulWidget {
-  final String eventName;
-  final String entrance;
-  final String theme;
-  final int alcoholPrice;
-  final String xFactor;
-  final String location;
+  final Event event;
 
-  EventDetail(
-      {this.eventName,
-      this.entrance,
-      this.theme,
-      this.alcoholPrice,
-      this.xFactor,
-      this.location});
+  EventDetail(this.event);
 
   @override
   State<StatefulWidget> createState() {
@@ -37,25 +27,23 @@ class EventDetailState extends State<EventDetail> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            Image.asset(
-              'assets/images/party2.jpg',
+            Image.network(
+              widget.event.img,
               width: double.infinity,
             ),
             SizedBox(
               height: 20,
             ),
             Text(
-              widget.eventName,
+              widget.event.eventName,
               style: TextStyle(
-                  fontFamily: 'PierSans',
-                  color: Colors.white,
-                  fontSize: 23),
+                  fontFamily: 'PierSans', color: Colors.white, fontSize: 23),
             ),
             SizedBox(
               height: 20,
             ),
             Text(
-              'Location: ${widget.location}',
+              'Location: ${widget.event.location}',
               style: TextStyle(
                 fontFamily: 'PierSans',
                 color: Colors.blueGrey,
@@ -67,7 +55,7 @@ class EventDetailState extends State<EventDetail> {
               height: 20,
             ),
             Text(
-              'Entrance: ${(widget.entrance == 'none')? 'Free': '${widget.entrance} TZS'}' ,
+              'Entrance: ${(widget.event.entranceFee == 'none') ? 'Free' : '${widget.event.entranceFee} TZS'}',
               style: TextStyle(
                 fontFamily: 'PierSans',
                 color: Colors.blueGrey,
@@ -79,19 +67,7 @@ class EventDetailState extends State<EventDetail> {
               height: 20,
             ),
             Text(
-              'Special:  ${widget.xFactor}',
-              style: TextStyle(
-                fontFamily: 'PierSans',
-                color: Colors.blueGrey,
-                fontWeight: FontWeight.w600,
-                fontSize: 20,
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Text(
-              'Theme:  ${widget.theme}',
+              'Special:  ${widget.event.xFactor}',
               style: TextStyle(
                 fontFamily: 'PierSans',
                 color: Colors.blueGrey,
@@ -113,7 +89,7 @@ class EventDetailState extends State<EventDetail> {
                   ),
                   children: [
                     TextSpan(
-                      text: '${widget.alcoholPrice}',
+                      text: '${widget.event.alcoholPrice}',
                       style: GoogleFonts.roboto(
                         color: Colors.yellowAccent,
                         fontWeight: FontWeight.w600,

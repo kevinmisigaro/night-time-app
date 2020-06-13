@@ -1,22 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:night_life/models/event.dart';
 
-class EventsDetail extends StatelessWidget{
-  final String eventName;
-  final String date;
-  final int alcoholPrice;
-  final String entrance;
-  final String xFactor;
-  final String location;
+class EventsDetail extends StatelessWidget {
+  final Event event;
 
-
-  EventsDetail({this.eventName, this.entrance, this.date, this.alcoholPrice, this.location, this.xFactor});
-
+  EventsDetail(this.event);
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-   return Scaffold(
+    return Scaffold(
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: Column(
@@ -24,9 +18,9 @@ class EventsDetail extends StatelessWidget{
           children: <Widget>[
             GestureDetector(
               child: Hero(
-                tag: '${eventName}event',
-                child: Image.asset(
-                  'assets/images/party2.jpg',
+                tag: '${event.eventName}event',
+                child: Image.network(
+                  event.img,
                   width: double.infinity,
                 ),
               ),
@@ -37,22 +31,19 @@ class EventsDetail extends StatelessWidget{
             SizedBox(
               height: 20,
             ),
-
             Text(
-              eventName,
+              event.eventName,
               style: TextStyle(
                   fontFamily: 'PierSans',
                   color: Colors.white,
                   fontWeight: FontWeight.w600,
-                  fontSize: 23
-              ),
+                  fontSize: 23),
             ),
-
             SizedBox(
               height: 30,
             ),
             Text(
-              'Date: $date',
+              'Date: ${event.date}',
               style: TextStyle(
                 fontFamily: 'PierSans',
                 color: Colors.blueGrey,
@@ -64,7 +55,7 @@ class EventsDetail extends StatelessWidget{
               height: 20,
             ),
             Text(
-              'Location: $location',
+              'Location: ${event.location}',
               style: TextStyle(
                 fontFamily: 'PierSans',
                 color: Colors.blueGrey,
@@ -76,7 +67,7 @@ class EventsDetail extends StatelessWidget{
               height: 20,
             ),
             Text(
-              'Special:  $xFactor',
+              'Special:  ${event.xFactor}',
               style: TextStyle(
                 fontFamily: 'PierSans',
                 color: Colors.blueGrey,
@@ -88,7 +79,7 @@ class EventsDetail extends StatelessWidget{
               height: 20,
             ),
             Text(
-              'Entrance: ${(entrance == 'none')? 'Free': '$entrance TZS'}',
+              'Entrance: ${(event.entranceFee == 'none') ? 'Free' : '${event.entranceFee} TZS'}',
               style: TextStyle(
                 fontFamily: 'PierSans',
                 color: Colors.blueGrey,
@@ -110,7 +101,7 @@ class EventsDetail extends StatelessWidget{
                   ),
                   children: [
                     TextSpan(
-                      text: '$alcoholPrice',
+                      text: '${event.alcoholPrice}',
                       style: GoogleFonts.roboto(
                         color: Colors.yellowAccent,
                         fontWeight: FontWeight.w600,

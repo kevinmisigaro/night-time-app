@@ -43,24 +43,11 @@ class DatabaseService {
   }
 
   //get club favorites list from snapshot
-  Stream<List<UserClubFavorites>> get clubFavorites {
+  Stream<List<Club>> get clubFavorites {
     return clubCollection
         .where('userLikes', arrayContains: uid)
         .snapshots()
-        .map(_userClubListFromSnapshot);
-  }
-
-  List<UserClubFavorites> _userClubListFromSnapshot(QuerySnapshot snapshot) {
-    return snapshot.documents
-        .map((doc) => UserClubFavorites(
-            name: doc.data['name'] ?? '',
-            type: doc.data['type'] ?? '',
-            location: doc.data['location'] ?? '',
-            userId: uid ?? '',
-            clubId: doc.documentID,
-            likes: doc.data['userLikes'],
-            alcoholPrice: doc.data['alcohol_price'] ?? 0))
-        .toList();
+        .map(_clubListFromSnapshot);
   }
 
   //club list from snapshot
@@ -69,10 +56,11 @@ class DatabaseService {
         .map((doc) => Club(
             id: doc.documentID,
             name: doc.data['name'] ?? '',
+            img: doc.data['image'] ?? '',
             type: doc.data['type'] ?? '',
             location: doc.data['location'] ?? '',
             recommended: doc.data['recommended'] ?? false,
-            alcoholPrice: doc.data['alcohol_price'] ?? 0,
+            alcoholPrice: doc.data['alcohol_price'] ?? '',
             likes: doc.data['userLikes'] ?? []))
         .toList();
   }
@@ -82,13 +70,13 @@ class DatabaseService {
     return snapshot.documents
         .map((doc) => Event(
             eventName: doc.data['name'] ?? '',
-            theme: doc.data['theme'] ?? '',
+            img: doc.data['image'] ?? '',
             entranceFee: doc.data['entrance_fee'] ?? '',
             date: doc.data['date'] ?? '',
             isDone: doc.data['isDone'] ?? false,
             location: doc.data['location'] ?? '',
             xFactor: doc.data['xfactor'] ?? '',
-            alcoholPrice: doc.data['alcohol_price'] ?? 0))
+            alcoholPrice: doc.data['alcohol_price'] ?? ''))
         .toList();
   }
 

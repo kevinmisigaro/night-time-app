@@ -1,26 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:night_life/models/club.dart';
 import 'package:night_life/models/user.dart';
 import 'package:night_life/services/database.dart';
 import 'package:provider/provider.dart';
 
 class PlaceDetail extends StatefulWidget {
-  final String id;
-  final String clubName;
-  final String clubLocation;
-  final int clubAlcoholPrice;
-  final List userLiked;
-  final String type;
+  final Club club;
 
-  PlaceDetail(
-      {
-        this.id,
-      this.clubName,
-      this.clubLocation,
-      this.clubAlcoholPrice,
-      this.userLiked,
-        this.type
-      });
+  PlaceDetail(this.club);
 
   @override
   State<StatefulWidget> createState() {
@@ -36,7 +24,7 @@ class PlaceDetailState extends State<PlaceDetail> {
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
 
-    (widget.userLiked.contains(user.uid)) ? isFav = isFav : isFav = !isFav;
+    (widget.club.likes.contains(user.uid)) ? isFav = isFav : isFav = !isFav;
 
     return Scaffold(
         backgroundColor: Colors.black,
@@ -47,14 +35,14 @@ class PlaceDetailState extends State<PlaceDetail> {
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              Image.asset(
-                'assets/images/party1.jpg',
+              Image.network(
+                widget.club.img,
                 width: double.infinity,
               ),
               SizedBox(
                 height: 20,
               ),
-              Text('${widget.clubName}',
+              Text('${widget.club.name}',
                   style: TextStyle(
                       fontFamily: 'PierSans',
                       color: Colors.white,
@@ -63,7 +51,7 @@ class PlaceDetailState extends State<PlaceDetail> {
                 height: 20,
               ),
               Text(
-                'Location:  ${widget.clubLocation}',
+                'Location:  ${widget.club.location}',
                 style: TextStyle(
                   fontFamily: 'PierSans',
                   color: Colors.blueGrey,
@@ -75,7 +63,7 @@ class PlaceDetailState extends State<PlaceDetail> {
                 height: 20,
               ),
               Text(
-                'Type: ${widget.type}',
+                'Type: ${widget.club.type}',
                 style: TextStyle(
                   fontFamily: 'PierSans',
                   color: Colors.blueGrey,
@@ -97,7 +85,7 @@ class PlaceDetailState extends State<PlaceDetail> {
                     ),
                     children: [
                       TextSpan(
-                        text: '${widget.clubAlcoholPrice}',
+                        text: '${widget.club.alcoholPrice}',
                         style: GoogleFonts.roboto(
                           color: Colors.yellowAccent,
                           fontWeight: FontWeight.w600,
@@ -118,7 +106,7 @@ class PlaceDetailState extends State<PlaceDetail> {
                       isFav = !isFav;
                     });
                     DatabaseService(uid: user.uid)
-                        .handleUserFavorites(widget.id);
+                        .handleUserFavorites(widget.club.id);
                   }),
             ],
           ),

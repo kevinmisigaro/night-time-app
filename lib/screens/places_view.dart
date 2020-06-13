@@ -54,13 +54,7 @@ class PlacesView extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                       builder: (_) => PlaceDetail(
-                                            id: data[index].id,
-                                            clubName: data[index].name,
-                                            clubLocation: data[index].location,
-                                            clubAlcoholPrice:
-                                                data[index].alcoholPrice,
-                                            userLiked: data[index].likes,
-                                            type: data[index].type,
+                                           data[index]
                                           )));
                             },
                             child: Text(

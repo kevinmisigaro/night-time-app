@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:night_life/models/club.dart';
 
 class RecommendDetail extends StatelessWidget {
-  final String name;
-  final String location;
-  final int alcoholPrice;
-  final String type;
+  final Club club;
 
-  RecommendDetail(
-      this.name, this.location, this.alcoholPrice, this.type
-      );
+  RecommendDetail(this.club);
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +17,9 @@ class RecommendDetail extends StatelessWidget {
           children: <Widget>[
             GestureDetector(
               child: Hero(
-                tag: '${name}recommend',
-                child: Image.asset(
-                  'assets/images/party2.jpg',
+                tag: '${club.name}recommend',
+                child: Image.network(
+                  club.img,
                   width: double.infinity,
                 ),
               ),
@@ -35,21 +31,20 @@ class RecommendDetail extends StatelessWidget {
               height: 20,
             ),
 
-             Text(
-                name,
-               style: TextStyle(
-                   fontFamily: 'PierSans',
-                   color: Colors.white,
-                   fontWeight: FontWeight.w600,
-                   fontSize: 23
-               ),
-              ),
+            Text(
+              club.name,
+              style: TextStyle(
+                  fontFamily: 'PierSans',
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 23),
+            ),
 
             SizedBox(
               height: 30,
             ),
             Text(
-              'Location: $location',
+              'Location: ${club.location}',
               style: TextStyle(
                 fontFamily: 'PierSans',
                 color: Colors.blueGrey,
@@ -61,7 +56,7 @@ class RecommendDetail extends StatelessWidget {
               height: 20,
             ),
             Text(
-              'Type: $type',
+              'Type: ${club.type}',
               style: TextStyle(
                 fontFamily: 'PierSans',
                 color: Colors.blueGrey,
@@ -75,7 +70,7 @@ class RecommendDetail extends StatelessWidget {
             RichText(
               text: TextSpan(
                   text: 'Alcohol Price:  ',
-                  style:TextStyle(
+                  style: TextStyle(
                     fontFamily: 'PierSans',
                     color: Colors.blueGrey,
                     fontWeight: FontWeight.w600,
@@ -83,7 +78,7 @@ class RecommendDetail extends StatelessWidget {
                   ),
                   children: [
                     TextSpan(
-                      text: '$alcoholPrice',
+                      text: '${club.alcoholPrice}',
                       style: GoogleFonts.roboto(
                         color: Colors.yellowAccent,
                         fontWeight: FontWeight.w600,

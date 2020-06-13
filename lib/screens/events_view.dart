@@ -20,21 +20,16 @@ class EventsView extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-
             Container(
               padding: EdgeInsets.only(top: 0.0, bottom: 15.0),
               alignment: Alignment.topLeft,
-              child: Text(
-                  'Upcoming Events',
+              child: Text('Upcoming Events',
                   style: TextStyle(
                       fontFamily: 'MonumentExtended',
                       fontSize: 22,
                       color: Colors.white,
-                      fontWeight: FontWeight.w500
-                  )
-              ),
+                      fontWeight: FontWeight.w500)),
             ),
-
             SizedBox(
               height: 20,
             ),
@@ -64,18 +59,8 @@ class EventsView extends StatelessWidget {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (_) => EventDetail(
-                                                eventName:
-                                                    events[index].eventName,
-                                                theme: events[index].theme,
-                                                entrance:
-                                                    events[index].entranceFee,
-                                                alcoholPrice:
-                                                    events[index].alcoholPrice,
-                                                xFactor: events[index].xFactor,
-                                                location:
-                                                    events[index].location,
-                                              )));
+                                          builder: (_) =>
+                                              EventDetail(events[index])));
                                 },
                                 child: Row(
                                     mainAxisAlignment:

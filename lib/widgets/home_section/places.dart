@@ -33,10 +33,10 @@ class Places extends StatelessWidget{
                      height: 110.0,
                      child: Stack(
                        children: <Widget>[
-                         Image.asset(
-                           'assets/images/party3.jpg',
-                           fit: BoxFit.cover,
-                         ),
+                         Image.network(data[index].img,
+                             fit: BoxFit.cover,
+                             color: Color.fromRGBO(255, 255, 255, 0.8),
+                             colorBlendMode: BlendMode.modulate),
                          Positioned(
                            top: 80,
                            left: 10,
@@ -59,8 +59,7 @@ class Places extends StatelessWidget{
                      context,
                      MaterialPageRoute(
                          builder: (_) => PlaceDetail(
-                             data[index].name, data[index].location,
-                             data[index].alcoholPrice, data[index].type
+                             data[index]
                          )));
                },
              ),
