@@ -1,6 +1,6 @@
-# night_life
+# nightversion2
 
-Flutter Application which shows where are the best places to be during the nighttime in Dar
+A new Flutter project.
 
 ## Getting Started
 
